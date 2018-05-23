@@ -7,9 +7,18 @@ class form{
     var $formMethod = "POST"; //"POST"
     var $formAction = ""; //""
     
+    var $usePlaceholders = false; //false;
+    
     var $preset = ""; //""
     
     var $submitValue = "Submit"; //"Submit"
+    
+    var $inputTypes = [""]; //[""]
+    var $inputNames = [""]; //[""]
+    var $inputLabels = [""]; //[""]
+    var $inputPlaceholders = [""]; //[""]
+    var $inputValues = [""]; //[""]
+    var $inputWidth = "90%"; //"90%"
     
     
 /* SETTER FUNCTIONS */    
