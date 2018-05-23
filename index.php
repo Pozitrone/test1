@@ -1,0 +1,55 @@
+<?php
+
+class form{
+    
+/* DEFAULT VARS */    
+    var $formLanguage = "en"; //"en"
+    var $formMethod = "POST"; //"POST"
+    var $formAction = ""; //""
+    
+    
+/* SETTER FUNCTIONS */    
+    
+    function set_formLanguage($lang)
+    {
+        $this->formLanguage = $lang;
+    }
+    
+    function set_formMethod($method)
+    {
+        if((strtolower($method)=="get") or (strtolower($method)=="post"))
+        {
+            $this->formMethod = $method;
+        }
+        else
+        {
+            $this->formMethod = "POST";
+        }
+    }
+    
+    function set_formAction($action)
+    {
+        $this->formAction = $action;
+    }
+    
+/* GETTER FUNCTIONS */
+    
+    function get_formLanguage()
+    {
+        return $this->formLanguage;
+    }
+    
+    function get_formMethod()
+    {
+        return $this->formMethod;
+    }
+    
+    function get_formAction()
+    {
+        return $this->formAction;
+    }
+    
+}
+
+
+?>
