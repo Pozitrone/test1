@@ -76,7 +76,7 @@ class form{
     
     function con_submit()
     {
-        echo('<input type="submit" name="submit" class="submit '.$this->preset.'" value="'.$this->submitValue.'"/>');
+        return('<input type="submit" name="submit" class="submit '.$this->preset.'" value="'.$this->submitValue.'"/>');
     }
     
     
