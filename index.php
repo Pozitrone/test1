@@ -7,7 +7,9 @@ class form{
     var $formMethod = "POST"; //"POST"
     var $formAction = ""; //""
     
-    var $preset = "";
+    var $preset = ""; //""
+    
+    var $submitValue = "Submit"; //"Submit"
     
     
 /* SETTER FUNCTIONS */    
@@ -34,6 +36,11 @@ class form{
         $this->formAction = $action;
     }
     
+    function set_submitValue($val)
+    {
+        $this->submitValue = $val;
+    }
+    
 /* GETTER FUNCTIONS */
     
     function get_formLanguage()
@@ -51,12 +58,19 @@ class form{
         return $this->formAction;
     }
     
+    function get_submitValue($val)
+    {
+        return $this->submitValue;
+    }
+    
 /* CONSTRUCTING FUNCTIONS */
     
     function con_submit()
     {
-        echo('<input type="submit" name="submit" class="submit '.$this->preset.'"/>');
+        echo('<input type="submit" name="submit" class="submit '.$this->preset.'" value="'.$this->submitValue.'"/>');
     }
+    
+    
     
 }
 
