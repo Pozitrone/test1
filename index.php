@@ -7,6 +7,8 @@ class form{
     var $formMethod = "POST"; //"POST"
     var $formAction = ""; //""
     
+    var $preset = "";
+    
     
 /* SETTER FUNCTIONS */    
     
@@ -47,6 +49,13 @@ class form{
     function get_formAction()
     {
         return $this->formAction;
+    }
+    
+/* CONSTRUCTING FUNCTIONS */
+    
+    function con_submit()
+    {
+        echo('<input type="submit" name="submit" class="submit '.$this->preset.'"/>');
     }
     
 }
