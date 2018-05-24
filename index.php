@@ -13,7 +13,9 @@ class form{
     
     var $submitValue = "Submit"; //"Submit"
     
+    var $inputAmount = 1; //1
     var $inputTypes = [""]; //[""]
+        var $inputTypeDefault = "text"; //text
     var $inputNames = [""]; //[""]
     var $inputLabels = [""]; //[""]
     var $inputPlaceholders = [""]; //[""]
@@ -53,6 +55,10 @@ class form{
     }
     
     
+    function set_inputAmount($amount)
+    {
+        $this->inputAmount = $amount;
+    }
     
     function set_inputTypes($types) 
     {
@@ -111,6 +117,10 @@ class form{
     }
     
     
+    function get_inputAmount($amount)
+    {
+        return $this->inputAmount;
+    }
     
     function get_inputTypes() 
     {
@@ -148,6 +158,21 @@ class form{
         return('<input type="submit" name="submit" class="submit '.$this->preset.'" value="'.$this->submitValue.'"/>');
     }
     
+    function con_inputs()
+    {
+        for($i=0; $i<$this->inputAmount;$i++)
+        {
+            if(!isset($this->inputTypes[$i]))
+            {
+                $this->inputTypes[$i] = $this->$inputTypeDefault;
+            }
+            
+            return('
+            <label for="'.$this->inputNames[$i].'">'.$this->inputLabels.'</label>'
+            .'<br>'. 
+            '<input type="'.$this->inputTypes[$i].'" name="'.$this->inputNames[$i].'" placeholder="'.$this->inputPlaceholders.'" value="'.$this->inputValues.'"/>');
+        }
+    }
     
     
 }
