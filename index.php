@@ -45,10 +45,14 @@ class form{
         $this->formAction = $action;
     }
     
+    
+    
     function set_submitValue($val)
     {
         $this->submitValue = $val;
     }
+    
+    
     
     function set_inputTypes($types) 
     {
@@ -99,11 +103,44 @@ class form{
         return $this->formAction;
     }
     
-    function get_submitValue($val)
+    
+    
+    function get_submitValue()
     {
         return $this->submitValue;
     }
     
+    
+    
+    function get_inputTypes() 
+    {
+        return $this->inputTypes;
+    }
+    
+    function set_inputNames() 
+    {
+        return $this->inputNames;
+    }
+    
+    function set_inputLabels() 
+    {
+        return $this->inputLabels;
+    }
+    
+    function set_inputPlaceholders() 
+    {
+        return $this->inputPlaceholders;
+    }
+    
+    function set_inputValues() 
+    {
+        return $this->inputValues;
+    }
+    
+    function set_inputWidth() 
+    {
+        return $this->inputWidth;
+    }
 /* CONSTRUCTING FUNCTIONS */
     
     function con_submit()
