@@ -50,6 +50,38 @@ class form{
         $this->submitValue = $val;
     }
     
+    function set_inputTypes($types) 
+    {
+        $this->inputTypes = $types;
+    }
+    
+    function set_inputNames($names) 
+    {
+        $this->inputNames = $names;
+    }
+    
+    function set_inputLabels($labels) 
+    {
+        $this->inputLabels = $labels;
+    }
+    
+    function set_inputPlaceholders($placeholders) 
+    {
+        $this->inputPlaceholders = $placeholders;
+    }
+    
+    function set_inputValues($values) 
+    {
+        $this->inputValues = $values;
+    }
+    
+    function set_inputWidth($width) 
+    {
+        $this->inputWidth = $width;
+    }
+    
+
+    
 /* GETTER FUNCTIONS */
     
     function get_formLanguage()
