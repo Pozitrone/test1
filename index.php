@@ -23,6 +23,22 @@ class form{
     var $inputWidth = "90%"; //"90%"
     
     
+    
+    function help()
+    {
+        echo("formMethod - get or post<br>");
+        echo("formAction - url where to send. Leave blank for self<br>");
+        echo("usePlaceholders - if u want to use placeholders or not - true or false<br>");
+        echo("inputAmount - amount of fields to input - integer<br>");
+        echo("inputTypes - array of types for the amount of inputs - array of strings<br>");
+        echo("inputNames - array of names for the fields - used for labeling<br>");
+        echo("inputLabels - content of all labels<br>");
+        echo("inputPlaceholders - placeholder content, not needed if usePlaceholders is false<br>");
+        echo("inputValues - beginning values inside the fields, not required<br>");
+        echo("inputWidth - size of an input field compared to outer div<br>");
+    }
+    
+    
 /* SETTER FUNCTIONS */    
     
     function set_formLanguage($lang)
@@ -167,11 +183,36 @@ class form{
                 $this->inputTypes[$i] = $this->$inputTypeDefault;
             }
             
-            return('
-            <label for="'.$this->inputNames[$i].'">'.$this->inputLabels.'</label>'
-            .'<br>'. 
-            '<input type="'.$this->inputTypes[$i].'" name="'.$this->inputNames[$i].'" placeholder="'.$this->inputPlaceholders.'" value="'.$this->inputValues.'"/>');
+            if($this->usePlaceholders=true)
+            {
+                $placeholder[$i]='" placeholder="'.$this->inputPlaceholders[$i];
+            }
+            else
+            {
+                $placeholder[$i]='" ';
+            }
+            
+            if($this->inputTypes!="textarea")
+            {
+                return('
+                <label for="'.$this->inputNames[$i].'">'.$this->inputLabels.'</label>'
+                .'<br>'. 
+                '<input type="'.$this->inputTypes[$i].'" name="'.$this->inputNames[$i].$placeholder[$i].'" value="'.$this->inputValues.'"/>');
+            }
+            else
+            {
+                return('
+                <label for="'.$this->inputNames[$i].'">'.$this->inputLabels.'</label>'
+                .'<br>'. 
+                '<textarea name="'.$this->inputNames[$i].$placeholder[$i].'" value="'.$this->inputValues.'"/>');   
+            }
         }
+    }
+    
+   
+    function con_form()
+    {
+        
     }
     
     
