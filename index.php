@@ -194,24 +194,29 @@ class form{
             
             if($this->inputTypes!="textarea")
             {
-                return('
+                echo('
                 <label for="'.$this->inputNames[$i].'">'.$this->inputLabels.'</label>'
                 .'<br>'. 
                 '<input type="'.$this->inputTypes[$i].'" name="'.$this->inputNames[$i].$placeholder[$i].'" value="'.$this->inputValues.'"/>');
             }
             else
             {
-                return('
+                echo('
                 <label for="'.$this->inputNames[$i].'">'.$this->inputLabels.'</label>'
                 .'<br>'. 
                 '<textarea name="'.$this->inputNames[$i].$placeholder[$i].'" value="'.$this->inputValues.'"/>');   
             }
         }
+        return null;
     }
     
    
     function con_form()
     {
+        echo('<form method="'.$this->formMethod.'" action="'.$this->formAction.'">');
+        con_inputs();
+        echo(con_submit());
+        echo("</form>");
         
     }
     
