@@ -1,5 +1,4 @@
 <?php
-
 class form{
     
 /* DEFAULT VARS */    
@@ -184,6 +183,7 @@ class form{
             if((!isset($this->inputTypes[$i])) or ($this->inputTypes[$i] == ""))
             {
                 $this->inputTypes[$i] = $this->inputTypeDefault;
+                echo("<br>".$i."<br>");
             }
             
             if(!isset($this->inputNames[$i]))
@@ -210,7 +210,7 @@ class form{
                 $placeholder[$i]='';
             }
             
-            if(($this->inputTypes[$i]!="textarea") and ($this->inputTypes[$i]!="select"))
+            if(($this->inputTypes[$i]!="textarea") and (strpos($this->inputTypes[$i],"select")===false))
             {
                 echo('
                 <label for="'.$this->inputNames[$i].'">'.$this->inputLabels[$i].'</label>'
@@ -233,9 +233,29 @@ class form{
                 value="'.$this->inputValues.'" 
                 width="'.$this->inputWidth.'"/><br>');   
             }
-            else if ($this->inputTypes[$i]=="select")
+            else if (strpos($this->inputTypes[$i],"select")!==false)
             {
+                echo('<label for="'.$this->inputNames[$i].'">'.$this->inputLabels[$i].'</label><br>');
+                echo('<select name="'.$this->inputNames[$i].'" width="'.$this->inputWidth.'">');
+                $opts = explode(",",$this->inputTypes[$i]);
                 
+                for($j=0;$j<=substr_count($this->inputTypes[$i],",");$j++)
+                {
+                    
+                    if($j==0)
+                    {
+                        echo('<option value="'.substr($opts[$j],7).'">'.substr($opts[$j],7).'</option>');
+                    }
+                    else if($j==substr_count($this->inputTypes[$i],","))
+                    {
+                        echo('<option value="'.substr($opts[$j], 0, -1).'">'.substr($opts[$j], 0, -1).'</option>');
+                    }
+                    else
+                    {
+                        echo('<option value="'.$opts[$j].'">'.$opts[$j].'</option>');
+                    }
+                }
+                echo("</select><br>");
             }
         }
         return null;
@@ -255,6 +275,12 @@ class form{
     
     
 }
+
+
+
+
+
+
 echo("jeden vstup, zadny placeholder");
 $form = new form;
 $form->inputAmount = 1;
@@ -269,7 +295,7 @@ $form->con_form();
 echo("7 vstupu");
 $forma = new form;
 $forma->inputAmount = 7;
-$form->inputTypes = ["text","text","select","text","text","number","number"];
+$forma->inputTypes = ["text","text","select(Muž,Žena,Jiné)","text","text","number","number"];
 $forma->inputLabels = ["Jméno","Příjmení","Pohlaví","Město","Ulice","Číslo domu","PSČ"];
 $forma->inputNames = ["Jmeno","Prijmeni","Pohlavi","Mesto","Ulice","cp","psc"];
 $forma->inputValues = [""];
@@ -277,6 +303,5 @@ $forma->inputWidth = "512px";
 $forma->usePlaceholders = true;
 $forma->inputPlaceholders = ["Jméno","Příjmení","Pohlaví","Město","Ulice","Číslo domu","PSČ"];
 $forma->con_form();
-
 
 ?>
