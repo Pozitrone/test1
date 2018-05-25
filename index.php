@@ -210,7 +210,7 @@ class form{
                 $placeholder[$i]='';
             }
             
-            if($this->inputTypes[$i]!="textarea")
+            if(($this->inputTypes[$i]!="textarea") and ($this->inputTypes[$i]!="select"))
             {
                 echo('
                 <label for="'.$this->inputNames[$i].'">'.$this->inputLabels[$i].'</label>'
@@ -222,7 +222,7 @@ class form{
                 value="'.$this->inputValues[$i].'" 
                 width="'.$this->inputWidth.'"/><br>');
             }
-            else
+            else if ($this->inputTypes[$i]=="textarea")
             {
                 echo('
                 <label for="'.$this->inputNames[$i].'">'.$this->inputLabels.'</label>'
@@ -232,6 +232,10 @@ class form{
                 '.$placeholder[$i].'  
                 value="'.$this->inputValues.'" 
                 width="'.$this->inputWidth.'"/><br>');   
+            }
+            else if ($this->inputTypes[$i]=="select")
+            {
+                
             }
         }
         return null;
