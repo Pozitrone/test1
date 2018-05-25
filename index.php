@@ -26,16 +26,19 @@ class form{
     
     function help()
     {
-        echo("formMethod - get or post<br>");
-        echo("formAction - url where to send. Leave blank for self<br>");
-        echo("usePlaceholders - if u want to use placeholders or not - true or false<br>");
-        echo("inputAmount - amount of fields to input - integer<br>");
-        echo("inputTypes - array of types for the amount of inputs - array of strings<br>");
-        echo("inputNames - array of names for the fields - used for labeling<br>");
-        echo("inputLabels - content of all labels<br>");
-        echo("inputPlaceholders - placeholder content, not needed if usePlaceholders is false<br>");
-        echo("inputValues - beginning values inside the fields, not required<br>");
-        echo("inputWidth - size of an input field compared to outer div<br>");
+        echo("<strong>formMethod</strong> - get or post<br>");
+        echo("<strong>formAction</strong> - url where to send. Leave blank for self<br>");
+        echo("<strong>usePlaceholders</strong> - if u want to use placeholders or not - true or false<br>");
+        echo("<strong>inputAmount</strong> - amount of fields to input - integer<br>");
+        echo("<strong>inputTypes</strong> - array of types for the amount of inputs - array of strings<br>");
+        echo("<strong>inputNames</strong> - array of names for the fields - used for labeling<br>");
+        echo("<strong>inputLabels</strong> - content of all labels<br>");
+        echo("<strong>inputPlaceholders</strong> - placeholder content, not needed if usePlaceholders is false<br>");
+        echo("<strong>inputValues</strong> - beginning values inside the fields, not required<br>");
+        echo("<strong>inputWidth</strong> - size of an input field compared to outer div<br>");
+        
+        echo("<br><br>");
+        return null;
     }
     
     
@@ -143,27 +146,27 @@ class form{
         return $this->inputTypes;
     }
     
-    function set_inputNames() 
+    function get_inputNames() 
     {
         return $this->inputNames;
     }
     
-    function set_inputLabels() 
+    function get_inputLabels() 
     {
         return $this->inputLabels;
     }
     
-    function set_inputPlaceholders() 
+    function get_inputPlaceholders() 
     {
         return $this->inputPlaceholders;
     }
     
-    function set_inputValues() 
+    function get_inputValues() 
     {
         return $this->inputValues;
     }
     
-    function set_inputWidth() 
+    function get_inputWidth() 
     {
         return $this->inputWidth;
     }
@@ -183,7 +186,17 @@ class form{
                 $this->inputTypes[$i] = $this->$inputTypeDefault;
             }
             
-            if($this->usePlaceholders=true)
+            if(!isset($this->inputNames[$i]))
+            {
+                $this->inputNames[$i] = "";
+            }
+            
+            if(!isset($this->inputLabels[$i]))
+            {
+                $this->inputLabels[$i] = ":";
+            }
+            
+            if($this->usePlaceholders==true)
             {
                 $placeholder[$i]='" placeholder="'.$this->inputPlaceholders[$i];
             }
@@ -192,12 +205,12 @@ class form{
                 $placeholder[$i]='" ';
             }
             
-            if($this->inputTypes!="textarea")
+            if($this->inputTypes[$i]!="textarea")
             {
                 echo('
-                <label for="'.$this->inputNames[$i].'">'.$this->inputLabels.'</label>'
+                <label for="'.$this->inputNames[$i].'">'.$this->inputLabels[$i].'</label>'
                 .'<br>'. 
-                '<input type="'.$this->inputTypes[$i].'" name="'.$this->inputNames[$i].$placeholder[$i].'" value="'.$this->inputValues.'"/>');
+                '<input type="'.$this->inputTypes[$i].'" name="'.$this->inputNames[$i].$placeholder[$i].'" value="'.$this->inputValues[$i].'"/>');
             }
             else
             {
@@ -214,14 +227,17 @@ class form{
     function con_form()
     {
         echo('<form method="'.$this->formMethod.'" action="'.$this->formAction.'">');
-        con_inputs();
-        echo(con_submit());
+        $this->con_inputs();
+        echo($this->con_submit());
         echo("</form>");
         
     }
     
     
+    
+    
 }
-
-
+$form = new form;
+$form->help();
+$form->con_form();
 ?>
