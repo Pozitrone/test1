@@ -174,21 +174,26 @@ class form{
     
     function con_submit()
     {
-        return('<input type="submit" name="submit" class="submit '.$this->preset.'" value="'.$this->submitValue.'"/>');
+        return('<br><input type="submit" name="submit" class="submit '.$this->preset.'" value="'.$this->submitValue.'"/>');
     }
     
     function con_inputs()
     {
         for($i=0; $i<$this->inputAmount;$i++)
         {
-            if(!isset($this->inputTypes[$i]))
+            if((!isset($this->inputTypes[$i])) or ($this->inputTypes[$i] == ""))
             {
-                $this->inputTypes[$i] = $this->$inputTypeDefault;
+                $this->inputTypes[$i] = $this->inputTypeDefault;
             }
             
             if(!isset($this->inputNames[$i]))
             {
-                $this->inputNames[$i] = "";
+                $this->inputNames[$i] = '';
+            }
+            
+            if(!isset($this->inputValues[$i]))
+            {
+                $this->inputValues[$i] = '';
             }
             
             if(!isset($this->inputLabels[$i]))
@@ -198,11 +203,11 @@ class form{
             
             if($this->usePlaceholders==true)
             {
-                $placeholder[$i]='" placeholder="'.$this->inputPlaceholders[$i];
+                $placeholder[$i]=' placeholder="'.$this->inputPlaceholders[$i].'"';
             }
             else
             {
-                $placeholder[$i]='" ';
+                $placeholder[$i]='';
             }
             
             if($this->inputTypes[$i]!="textarea")
@@ -210,14 +215,23 @@ class form{
                 echo('
                 <label for="'.$this->inputNames[$i].'">'.$this->inputLabels[$i].'</label>'
                 .'<br>'. 
-                '<input type="'.$this->inputTypes[$i].'" name="'.$this->inputNames[$i].$placeholder[$i].'" value="'.$this->inputValues[$i].'"/>');
+                '<input 
+                type="'.$this->inputTypes[$i].'"
+                name="'.$this->inputNames[$i].'" 
+                '.$placeholder[$i].' 
+                value="'.$this->inputValues[$i].'" 
+                width="'.$this->inputWidth.'"/><br>');
             }
             else
             {
                 echo('
                 <label for="'.$this->inputNames[$i].'">'.$this->inputLabels.'</label>'
                 .'<br>'. 
-                '<textarea name="'.$this->inputNames[$i].$placeholder[$i].'" value="'.$this->inputValues.'"/>');   
+                '<textarea 
+                name="'.$this->inputNames[$i].'"
+                '.$placeholder[$i].'  
+                value="'.$this->inputValues.'" 
+                width="'.$this->inputWidth.'"/><br>');   
             }
         }
         return null;
@@ -237,7 +251,28 @@ class form{
     
     
 }
+echo("jeden vstup, zadny placeholder");
 $form = new form;
-$form->help();
+$form->inputAmount = 1;
+$form->inputTypes = ["text"];
+$form->inputLabels = ["Vstup 1:"];
+$form->inputNames = ["Jmeno"];
+$form->inputValues = [""];
+$form->inputWidth = "300px";
+$form->usePlaceholders = false;
 $form->con_form();
+
+echo("7 vstupu");
+$forma = new form;
+$forma->inputAmount = 7;
+$form->inputTypes = ["text","text","select","text","text","number","number"];
+$forma->inputLabels = ["Jméno","Příjmení","Pohlaví","Město","Ulice","Číslo domu","PSČ"];
+$forma->inputNames = ["Jmeno","Prijmeni","Pohlavi","Mesto","Ulice","cp","psc"];
+$forma->inputValues = [""];
+$forma->inputWidth = "512px";
+$forma->usePlaceholders = true;
+$forma->inputPlaceholders = ["Jméno","Příjmení","Pohlaví","Město","Ulice","Číslo domu","PSČ"];
+$forma->con_form();
+
+
 ?>
