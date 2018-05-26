@@ -279,7 +279,20 @@ class form{
     
     
 }
+?>
+<!doctype html/>
+<head>
+    <title>Vexx Forms</title>
+    <meta lang="en">
+    <meta charset="utf-8">
+    <link rel="css/stylesheet" href="presets.css"/>
+</head>
+<body>
+</body>
 
+
+
+<?php
 
 
 
