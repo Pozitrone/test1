@@ -2,13 +2,12 @@
 class form{
     
 /* DEFAULT VARS */    
-    var $formLanguage = "en"; //"en"
     var $formMethod = "POST"; //"POST"
     var $formAction = ""; //""
     
     var $usePlaceholders = false; //false;
     
-    var $preset = ""; //""
+    var $preset = "Default"; //"Default"
     
     var $submitValue = "Submit"; //"Submit"
     
@@ -35,6 +34,11 @@ class form{
         echo("<strong>inputPlaceholders</strong> - placeholder content, not needed if usePlaceholders is false<br>");
         echo("<strong>inputValues</strong> - beginning values inside the fields, not required<br>");
         echo("<strong>inputWidth</strong> - size of an input field compared to outer div<br>");
+        echo("<strong>preset</strong> - Gives you a choice of presets<br>");
+        echo("<strong>Current presets available:</strong>");
+            echo("<ul>");
+            echo("<li>Default</li>");
+            echo("</ul>");
         
         echo("<br><br>");
         return null;
