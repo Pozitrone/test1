@@ -219,9 +219,9 @@ class form{
             if(($this->inputTypes[$i]!="textarea") and (strpos($this->inputTypes[$i],"select")===false))
             {
                 echo('
-                <label for="'.$this->inputNames[$i].'">'.$this->inputLabels[$i].'</label>'
+                <label for="'.$this->inputNames[$i].'">'.$this->inputLabels[$i].' class="'.$this->preset.'"</label>'
                 .'<br>'. 
-                '<input 
+                '<input class="'.$this->preset.'"
                 type="'.$this->inputTypes[$i].'"
                 name="'.$this->inputNames[$i].'" 
                 '.$placeholder[$i].' 
@@ -231,9 +231,9 @@ class form{
             else if ($this->inputTypes[$i]=="textarea")
             {
                 echo('
-                <label for="'.$this->inputNames[$i].'">'.$this->inputLabels.'</label>'
+                <label for="'.$this->inputNames[$i].'">'.$this->inputLabels.' class="'.$this->preset.'"</label>'
                 .'<br>'. 
-                '<textarea 
+                '<textarea class="'.$this->preset.'"
                 name="'.$this->inputNames[$i].'"
                 '.$placeholder[$i].'  
                 value="'.$this->inputValues.'" 
@@ -241,8 +241,11 @@ class form{
             }
             else if (strpos($this->inputTypes[$i],"select")!==false)
             {
-                echo('<label for="'.$this->inputNames[$i].'">'.$this->inputLabels[$i].'</label><br>');
-                echo('<select name="'.$this->inputNames[$i].'" width="'.$this->inputWidth.'">');
+                echo('<label for="'.$this->inputNames[$i].'">'.$this->inputLabels[$i].' class="'.$this->preset.'"</label>
+                <br>');
+                echo('<select class="'.$this->preset.'" 
+                name="'.$this->inputNames[$i].'" 
+                width="'.$this->inputWidth.'">');
                 $opts = explode(",",$this->inputTypes[$i]);
                 
                 for($j=0;$j<=substr_count($this->inputTypes[$i],",");$j++)
@@ -250,15 +253,17 @@ class form{
                     
                     if($j==0)
                     {
-                        echo('<option value="'.substr($opts[$j],7).'">'.substr($opts[$j],7).'</option>');
+                        echo('<option class="'.$this->preset.'" value="'.substr($opts[$j],7).'">'.substr($opts[$j],7).'</option>');
                     }
                     else if($j==substr_count($this->inputTypes[$i],","))
                     {
-                        echo('<option value="'.substr($opts[$j], 0, -1).'">'.substr($opts[$j], 0, -1).'</option>');
+                        echo('<option class="'.$this->preset.'"
+                        value="'.substr($opts[$j], 0, -1).'">'.substr($opts[$j], 0, -1).'</option>');
                     }
                     else
                     {
-                        echo('<option value="'.$opts[$j].'">'.$opts[$j].'</option>');
+                        echo('<option class="'.$this->preset.'"
+                        value="'.$opts[$j].'">'.$opts[$j].'</option>');
                     }
                 }
                 echo("</select><br>");
@@ -270,7 +275,7 @@ class form{
    
     function con_form()
     {
-        echo('<form method="'.$this->formMethod.'" action="'.$this->formAction.'">');
+        echo('<form method="'.$this->formMethod.'" action="'.$this->formAction.'" class="'.$this->preset.'">');
         $this->con_inputs();
         echo($this->con_submit());
         echo("</form>");
@@ -287,18 +292,14 @@ class form{
     <title>Vexx Forms</title>
     <meta lang="en">
     <meta charset="utf-8">
-    <link rel="css/stylesheet" href="presets.css"/>
+    <link rel="stylesheet" type="text/css" href="presets.css"/>
 </head>
 <body>
-</body>
+
 
 
 
 <?php
-
-
-
-
 
 echo("jeden vstup, zadny placeholder");
 $form = new form;
@@ -324,3 +325,4 @@ $forma->inputPlaceholders = ["Jméno","Příjmení","Pohlaví","Město","Ulice",
 $forma->con_form();
 
 ?>
+</body>
