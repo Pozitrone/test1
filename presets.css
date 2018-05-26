@@ -1,0 +1,29 @@
+input.smooth, select.smooth, textarea.smooth{
+    background-color:#ddd;
+    font-family:sans-serif;
+    border-radius: 10px;
+    border-color:#3333ff;
+    box-shadow: 0px 0px #6699ff 2px;
+    padding:5px;
+    margin:5px;
+}
+
+label.smooth
+{
+    margin:5px;
+    font-family:sans-serif;
+    font-weight: bold;
+}
+
+form.smooth
+{
+    padding:10px;
+    background-color:#eee;
+    display:block;
+    margin:auto;
+}
+
+.submit.smooth
+{
+    width:100px;
+}

@@ -2,6 +2,7 @@
 
 function help()
     {
+        echo("<h2 style='font-family:sans-serif;'>Help:</h2>");
         echo("<strong>formMethod</strong> - get or post<br>");
         echo("<strong>formAction</strong> - url where to send. Leave blank for self<br>");
         echo("<strong>usePlaceholders</strong> - if u want to use placeholders or not - true or false<br>");
@@ -15,9 +16,13 @@ function help()
         echo("<strong>preset</strong> - Gives you a choice of presets<br>");
         echo("<strong>Current presets available:</strong>");
             echo("<ul>");
-            echo("<li>Default</li>");
+            echo("<li>default</li>");
+            echo("<li>smooth</li>");
             echo("</ul><br>");
         echo("<strong>submitValue</strong> - Value that will appear in submit button<br>");
+        echo("<strong>formId</strong> - give your form a brand new ID<br>");
+        echo("<strong>fontFamily</strong> - select a font family for your form<br>");
+        
         
         echo("<br><br>");
         return null;
@@ -28,6 +33,9 @@ class form{
 /* DEFAULT VARS */    
     var $formMethod = "POST"; //"POST"
     var $formAction = ""; //""
+    var $formId = ""; //""
+    
+    var $fontFamily = "sans-serif"; //"sans-serif"
     
     var $usePlaceholders = false; //false;
     
@@ -114,6 +122,20 @@ class form{
         $this->inputWidth = $width;
     }
     
+    
+    
+    function set_formId($id)
+    {
+        $this->formId = $id;
+    }
+    
+    
+    
+    function set_fontFamily($font)
+    {
+        $this->fontFamily = $font;
+    }
+    
 
     
 /* GETTER FUNCTIONS */
@@ -175,6 +197,20 @@ class form{
     {
         return $this->inputWidth;
     }
+    
+    
+    
+    function get_formId()
+    {
+        return $this->formId;
+    }
+    
+    
+    
+    function get_fontFamily()
+    {
+        return $this->fontFamily;
+    }
 /* CONSTRUCTING FUNCTIONS */
     
     function con_submit()
@@ -219,7 +255,7 @@ class form{
             if(($this->inputTypes[$i]!="textarea") and (strpos($this->inputTypes[$i],"select")===false))
             {
                 echo('
-                <label for="'.$this->inputNames[$i].'">'.$this->inputLabels[$i].' class="'.$this->preset.'"</label>'
+                <label for="'.$this->inputNames[$i].'" class="'.$this->preset.'">'.$this->inputLabels[$i].' </label>'
                 .'<br>'. 
                 '<input class="'.$this->preset.'"
                 type="'.$this->inputTypes[$i].'"
@@ -231,7 +267,7 @@ class form{
             else if ($this->inputTypes[$i]=="textarea")
             {
                 echo('
-                <label for="'.$this->inputNames[$i].'">'.$this->inputLabels.' class="'.$this->preset.'"</label>'
+                <label for="'.$this->inputNames[$i].'" class="'.$this->preset.'">'.$this->inputLabels.'</label>'
                 .'<br>'. 
                 '<textarea class="'.$this->preset.'"
                 name="'.$this->inputNames[$i].'"
@@ -241,7 +277,7 @@ class form{
             }
             else if (strpos($this->inputTypes[$i],"select")!==false)
             {
-                echo('<label for="'.$this->inputNames[$i].'">'.$this->inputLabels[$i].' class="'.$this->preset.'"</label>
+                echo('<label for="'.$this->inputNames[$i].'" class="'.$this->preset.'">'.$this->inputLabels[$i].' </label>
                 <br>');
                 echo('<select class="'.$this->preset.'" 
                 name="'.$this->inputNames[$i].'" 
@@ -275,7 +311,7 @@ class form{
    
     function con_form()
     {
-        echo('<form method="'.$this->formMethod.'" action="'.$this->formAction.'" class="'.$this->preset.'">');
+        echo('<form method="'.$this->formMethod.'" action="'.$this->formAction.'" class="'.$this->preset.'" style="font-family:'.$this->fontFamily.'">');
         $this->con_inputs();
         echo($this->con_submit());
         echo("</form>");
@@ -287,7 +323,8 @@ class form{
     
 }
 ?>
-<!doctype html/>
+<!doctype html>
+<html>
 <head>
     <title>Vexx Forms</title>
     <meta lang="en">
@@ -301,7 +338,7 @@ class form{
 
 <?php
 
-echo("jeden vstup, zadny placeholder");
+echo("jeden vstup, zadny placeholder, default preset");
 $form = new form;
 $form->inputAmount = 1;
 $form->inputTypes = ["text"];
@@ -311,9 +348,12 @@ $form->inputValues = [""];
 $form->inputWidth = "300px";
 $form->usePlaceholders = false;
 $form->con_form();
+    
+    echo("<br><br><br>");
 
-echo("7 vstupu");
+echo("7 vstupu, placeholder, smooth preset");
 $forma = new form;
+$forma->preset = "smooth";
 $forma->inputAmount = 7;
 $forma->inputTypes = ["text","text","select(Muž,Žena,Jiné)","text","text","number","number"];
 $forma->inputLabels = ["Jméno","Příjmení","Pohlaví","Město","Ulice","Číslo domu","PSČ"];
@@ -323,6 +363,9 @@ $forma->inputWidth = "512px";
 $forma->usePlaceholders = true;
 $forma->inputPlaceholders = ["Jméno","Příjmení","Pohlaví","Město","Ulice","Číslo domu","PSČ"];
 $forma->con_form();
-
+    
+    echo("<br><br><br>");
+    help();
 ?>
 </body>
+</html>
