@@ -1,4 +1,28 @@
 <?php
+
+function help()
+    {
+        echo("<strong>formMethod</strong> - get or post<br>");
+        echo("<strong>formAction</strong> - url where to send. Leave blank for self<br>");
+        echo("<strong>usePlaceholders</strong> - if u want to use placeholders or not - true or false<br>");
+        echo("<strong>inputAmount</strong> - amount of fields to input - integer<br>");
+        echo("<strong>inputTypes</strong> - array of types for the amount of inputs - array of strings<br>");
+        echo("<strong>inputNames</strong> - array of names for the fields - used for labeling<br>");
+        echo("<strong>inputLabels</strong> - content of all labels<br>");
+        echo("<strong>inputPlaceholders</strong> - placeholder content, not needed if usePlaceholders is false<br>");
+        echo("<strong>inputValues</strong> - beginning values inside the fields, not required<br>");
+        echo("<strong>inputWidth</strong> - size of an input field compared to outer div<br>");
+        echo("<strong>preset</strong> - Gives you a choice of presets<br>");
+        echo("<strong>Current presets available:</strong>");
+            echo("<ul>");
+            echo("<li>Default</li>");
+            echo("</ul><br>");
+        echo("<strong>submitValue</strong> - Value that will appear in submit button<br>");
+        
+        echo("<br><br>");
+        return null;
+    }
+
 class form{
     
 /* DEFAULT VARS */    
@@ -20,29 +44,7 @@ class form{
     var $inputValues = [""]; //[""]
     var $inputWidth = "90%"; //"90%"
     
-    
-    
-    function help()
-    {
-        echo("<strong>formMethod</strong> - get or post<br>");
-        echo("<strong>formAction</strong> - url where to send. Leave blank for self<br>");
-        echo("<strong>usePlaceholders</strong> - if u want to use placeholders or not - true or false<br>");
-        echo("<strong>inputAmount</strong> - amount of fields to input - integer<br>");
-        echo("<strong>inputTypes</strong> - array of types for the amount of inputs - array of strings<br>");
-        echo("<strong>inputNames</strong> - array of names for the fields - used for labeling<br>");
-        echo("<strong>inputLabels</strong> - content of all labels<br>");
-        echo("<strong>inputPlaceholders</strong> - placeholder content, not needed if usePlaceholders is false<br>");
-        echo("<strong>inputValues</strong> - beginning values inside the fields, not required<br>");
-        echo("<strong>inputWidth</strong> - size of an input field compared to outer div<br>");
-        echo("<strong>preset</strong> - Gives you a choice of presets<br>");
-        echo("<strong>Current presets available:</strong>");
-            echo("<ul>");
-            echo("<li>Default</li>");
-            echo("</ul>");
-        
-        echo("<br><br>");
-        return null;
-    }
+
     
     
 /* SETTER FUNCTIONS */    
