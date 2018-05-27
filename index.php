@@ -311,7 +311,7 @@ class form{
    
     function con_form()
     {
-        echo('<form method="'.$this->formMethod.'" action="'.$this->formAction.'" class="'.$this->preset.'" style="font-family:'.$this->fontFamily.'">');
+        echo('<form method="'.$this->formMethod.'" action="'.$this->formAction.'" class="'.$this->preset.'" style="width:'.$this->inputWidth.'; font-family:'.$this->fontFamily.'" id="'.$this->formId.'">');
         $this->con_inputs();
         echo($this->con_submit());
         echo("</form>");
