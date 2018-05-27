@@ -262,7 +262,7 @@ class form{
                 name="'.$this->inputNames[$i].'" 
                 '.$placeholder[$i].' 
                 value="'.$this->inputValues[$i].'" 
-                width="'.$this->inputWidth.'"/><br>');
+                /><br>');
             }
             else if ($this->inputTypes[$i]=="textarea")
             {
@@ -273,7 +273,7 @@ class form{
                 name="'.$this->inputNames[$i].'"
                 '.$placeholder[$i].'  
                 value="'.$this->inputValues.'" 
-                width="'.$this->inputWidth.'"/><br>');   
+                /><br>');   
             }
             else if (strpos($this->inputTypes[$i],"select")!==false)
             {
@@ -281,7 +281,7 @@ class form{
                 <br>');
                 echo('<select class="'.$this->preset.'" 
                 name="'.$this->inputNames[$i].'" 
-                width="'.$this->inputWidth.'">');
+                >');
                 $opts = explode(",",$this->inputTypes[$i]);
                 
                 for($j=0;$j<=substr_count($this->inputTypes[$i],",");$j++)
