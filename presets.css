@@ -3,7 +3,6 @@ input.smooth, select.smooth, textarea.smooth{
     font-family:sans-serif;
     border-radius: 10px;
     border-color:#3333ff;
-    box-shadow: 0px 0px #6699ff 2px;
     padding:5px;
     margin:5px;
     width:75%;
