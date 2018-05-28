@@ -53,6 +53,7 @@ class form{
     var $inputWidth = "90%"; //"90%"
     
     var useCustomCSS = false; //false
+    var cssPath = "";
     
 
     
@@ -87,6 +88,7 @@ class form{
     {
         $this->submitValue = $val;
     }
+    
     
     
     function set_inputAmount($amount)
@@ -138,10 +140,14 @@ class form{
         $this->fontFamily = $font;
     }
     
-    
     function set_useCustomCSS($bool)
     {
         $this->useCustomCSS = $bool;
+    }
+    
+    function set_cssPath($path)
+    {
+        $this->cssPath = $path;
     }
 
     
@@ -168,6 +174,7 @@ class form{
     {
         return $this->submitValue;
     }
+    
     
     
     function get_inputAmount($amount)
@@ -222,6 +229,11 @@ class form{
     function get_useCustomCSS()
     {
         return $this->useCustomCSS;
+    }
+    
+    function get_cssPath()
+    {
+        return $this->cssPath;
     }
 
 /* CONSTRUCTING FUNCTIONS */
@@ -320,36 +332,32 @@ class form{
         }
         return null;
     }
-    
    
     function con_form()
-    {
+    {   echo('<!doctype html>
+        <html>
+            <head>
+                <title>Vexx Forms</title>
+                <meta lang="en">
+                <meta charset="utf-8">
+                <link rel="stylesheet" type="text/css" href="presets.css"/>');
+        if(($this->useCustomCSS==true) and ($this->cssPath!=""))
+        {
+            echo('<link rel="stylesheet" type="text/css" href="'.$this->cssPath.'"/>');
+        }
+    
+        echo('</head>
+            <body>');
         echo('<form method="'.$this->formMethod.'" action="'.$this->formAction.'" class="'.$this->preset.'" style="width:'.$this->inputWidth.'; font-family:'.$this->fontFamily.'" id="'.$this->formId.'">');
         $this->con_inputs();
         echo($this->con_submit());
         echo("</form>");
         
     }
-    
-    
-    
+  
     
 }
-?>
-<!doctype html>
-<html>
-<head>
-    <title>Vexx Forms</title>
-    <meta lang="en">
-    <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="presets.css"/>
-</head>
-<body>
 
-
-
-
-<?php
 
 echo("jeden vstup, zadny placeholder, default preset");
 $form = new form;
@@ -379,6 +387,8 @@ $forma->con_form();
     
     echo("<br><br><br>");
     help();
-?>
-</body>
-</html>
+
+echo('</body>
+</html>');
+    
+    ?>
