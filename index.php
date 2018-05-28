@@ -22,6 +22,8 @@ function help()
         echo("<strong>submitValue</strong> - Value that will appear in submit button<br>");
         echo("<strong>formId</strong> - give your form a brand new ID<br>");
         echo("<strong>fontFamily</strong> - select a font family for your form<br>");
+        echo("<strong>useCustomCSS</strong> - boolean value whether to use custom CSS or not<br>");
+        echo("<strong>cssPath</strong> - path for your custom CSS<br>");
         
         
         echo("<br><br>");
@@ -52,8 +54,8 @@ class form{
     var $inputValues = [""]; //[""]
     var $inputWidth = "90%"; //"90%"
     
-    var useCustomCSS = false; //false
-    var cssPath = "";
+    var $useCustomCSS = false; //false
+    var $cssPath = "";
     
 
     
