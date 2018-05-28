@@ -52,6 +52,8 @@ class form{
     var $inputValues = [""]; //[""]
     var $inputWidth = "90%"; //"90%"
     
+    var useCustomCSS = false; //false
+    
 
     
     
@@ -136,6 +138,11 @@ class form{
         $this->fontFamily = $font;
     }
     
+    
+    function set_useCustomCSS($bool)
+    {
+        $this->useCustomCSS = $bool;
+    }
 
     
 /* GETTER FUNCTIONS */
@@ -211,6 +218,12 @@ class form{
     {
         return $this->fontFamily;
     }
+    
+    function get_useCustomCSS()
+    {
+        return $this->useCustomCSS;
+    }
+
 /* CONSTRUCTING FUNCTIONS */
     
     function con_submit()
