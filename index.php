@@ -53,6 +53,7 @@ class form{
     var $inputPlaceholders = [""]; //[""]
     var $inputValues = [""]; //[""]
     var $inputWidth = "90%"; //"90%"
+    var $inputsRequired = [false]; //[false]
     
     var $useCustomCSS = false; //false
     var $cssPath = "";
@@ -126,6 +127,11 @@ class form{
     function set_inputWidth($width) 
     {
         $this->inputWidth = $width;
+    }
+    
+    function set_inputsRequired($bools)
+    {
+        $this->inputsRequired = $bools;
     }
     
     
@@ -214,6 +220,11 @@ class form{
         return $this->inputWidth;
     }
     
+    function get_inputsRequired()
+    {
+        return $this->inputsRequired;
+    }
+    
     
     
     function get_formId()
@@ -279,6 +290,12 @@ class form{
                 $placeholder[$i]='';
             }
             
+            if((strtolower($this->inputsRequired[$i])!=true) 
+               and (strtolower($this->inputsRequired[$i])!=false))
+            {
+                $this->inputsRequired[$i]= false;
+            }
+            
             if(($this->inputTypes[$i]!="textarea") and (strpos($this->inputTypes[$i],"select")===false))
             {
                 echo('
@@ -288,8 +305,9 @@ class form{
                 type="'.$this->inputTypes[$i].'"
                 name="'.$this->inputNames[$i].'" 
                 '.$placeholder[$i].' 
-                value="'.$this->inputValues[$i].'" 
-                /><br>');
+                value="'.$this->inputValues[$i].'"');
+                if($this->inputsRequired[$i]==true){echo(" required");} 
+                echo('/><br>');
             }
             else if ($this->inputTypes[$i]=="textarea")
             {
@@ -299,16 +317,18 @@ class form{
                 '<textarea class="'.$this->preset.'"
                 name="'.$this->inputNames[$i].'"
                 '.$placeholder[$i].'  
-                value="'.$this->inputValues.'" 
-                /><br>');   
+                value="'.$this->inputValues.'"');
+                if($this->inputsRequired[$i]==true){echo(" required");} 
+                echo('/><br>');   
             }
             else if (strpos($this->inputTypes[$i],"select")!==false)
             {
                 echo('<label for="'.$this->inputNames[$i].'" class="'.$this->preset.'">'.$this->inputLabels[$i].' </label>
                 <br>');
                 echo('<select class="'.$this->preset.'" 
-                name="'.$this->inputNames[$i].'" 
-                >');
+                name="'.$this->inputNames[$i].'"'); 
+                if($this->inputsRequired[$i]==true){echo(" required");} 
+                echo('>');
                 $opts = explode(",",$this->inputTypes[$i]);
                 
                 for($j=0;$j<=substr_count($this->inputTypes[$i],",");$j++)
@@ -382,6 +402,7 @@ $forma->inputTypes = ["text","text","select(Muž,Žena,Jiné)","text","text","nu
 $forma->inputLabels = ["Jméno","Příjmení","Pohlaví","Město","Ulice","Číslo domu","PSČ"];
 $forma->inputNames = ["Jmeno","Prijmeni","Pohlavi","Mesto","Ulice","cp","psc"];
 $forma->inputValues = [""];
+$forma->inputsRequired = [true,true,true,false,false,false,false];
 $forma->inputWidth = "512px";
 $forma->usePlaceholders = true;
 $forma->inputPlaceholders = ["Jméno","Příjmení","Pohlaví","Město","Ulice","Číslo domu","PSČ"];
