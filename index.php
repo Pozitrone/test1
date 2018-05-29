@@ -38,11 +38,8 @@ class form{
     var $formAction = ""; //""
     var $formId = ""; //""
     
-    var $fontFamily = "sans-serif"; //"sans-serif"
-    
-    var $usePlaceholders = false; //false;
-    
-    var $preset = "Default"; //"Default"
+    var $usePlaceholders = false; //false
+    var $useReset = false; //false
     
     var $submitValue = "Submit"; //"Submit"
     
@@ -59,6 +56,8 @@ class form{
     
     var $useCustomCSS = false; //false
     var $cssPath = "";
+    var $fontFamily = "sans-serif"; //"sans-serif"
+    var $preset = "Default"; //"Default"
     
 
     
@@ -85,6 +84,18 @@ class form{
     function set_formAction($action)
     {
         $this->formAction = $action;
+    }
+    
+    
+    
+    function set_usePlaceholders($bool)
+    {
+        $this->usePlaceholders = $bool;
+    }
+    
+    function set_useReset($bool)
+    {
+        $this->useReset = $bool;
     }
     
     
@@ -181,6 +192,18 @@ class form{
     function get_formAction()
     {
         return $this->formAction;
+    }
+    
+    
+    
+    function get_usePlaceholders()
+    {
+        return $this->usePlaceholders;
+    }
+    
+    function get_useReset()
+    {
+        return $this->useReset;
     }
     
     
@@ -438,6 +461,7 @@ $forma->inputsReadOnly[3]=true;
 $forma->inputWidth = "512px";
 $forma->usePlaceholders = true;
 $forma->inputPlaceholders = ["Jméno","Příjmení","Pohlaví","Město","Ulice","Číslo domu","PSČ"];
+$forma->submitValue = "Odeslat";
 $forma->con_form();
     
     echo("<br><br><br>");
