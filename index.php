@@ -24,7 +24,8 @@ function help()
         echo("<strong>fontFamily</strong> - select a font family for your form<br>");
         echo("<strong>useCustomCSS</strong> - boolean value whether to use custom CSS or not<br>");
         echo("<strong>cssPath</strong> - path for your custom CSS<br>");
-        
+        echo("<strong>inputsRequired</strong> - whether the inputs are required or not, requires an array of bools<br>");
+        echo("<strong>inputsReadOnly</strong> - whether the inputs are readonly or not, requires an array of bools<br>");
         
         echo("<br><br>");
         return null;
@@ -301,14 +302,24 @@ class form{
                 $placeholder[$i]='';
             }
             
-            if(((strtolower($this->inputsRequired[$i])!=true) 
-               and (strtolower($this->inputsRequired[$i])!=false)) or (!isset($this->inputsRequired)))
+            if(!isset($this->inputsRequired[$i]))
+            {
+                $this->inputsRequired[$i]=false;
+            }
+            
+            if(!isset($this->inputsReadOnly[$i]))
+            {
+                $this->inputsReadOnly[$i]=false;
+            }
+            
+            if((strtolower($this->inputsRequired[$i])!=true) 
+               and (strtolower($this->inputsRequired[$i])!=false))
             {
                 $this->inputsRequired[$i]= false;
             }
             
-            if(((strtolower($this->inputsReadOnly[$i])!=true) 
-               and (strtolower($this->inputsReadOnly[$i])!=false)) or (!isset($this->inputsReadOnly)))
+            if((strtolower($this->inputsReadOnly[$i])!=true) 
+               and (strtolower($this->inputsReadOnly[$i])!=false))
             {
                 $this->inputsReadOnly[$i]= false;
             }
@@ -423,7 +434,7 @@ $forma->inputLabels = ["Jméno","Příjmení","Pohlaví","Město","Ulice","Čís
 $forma->inputNames = ["Jmeno","Prijmeni","Pohlavi","Mesto","Ulice","cp","psc"];
 $forma->inputValues = [""];
 $forma->inputsRequired = [true,true,true,false,false,false,false];
-$forma->inputsReadOnly = [false,false,false,false,true,false,false];
+$forma->inputsReadOnly[3]=true;
 $forma->inputWidth = "512px";
 $forma->usePlaceholders = true;
 $forma->inputPlaceholders = ["Jméno","Příjmení","Pohlaví","Město","Ulice","Číslo domu","PSČ"];
