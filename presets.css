@@ -32,3 +32,9 @@ form.smooth
     width:100px;
     font-weight: bold;
 }
+
+.resetButton.smooth
+{
+    width:100px;
+    font-weight: bold;
+}

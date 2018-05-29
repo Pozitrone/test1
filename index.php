@@ -42,6 +42,7 @@ class form{
     var $useReset = false; //false
     
     var $submitValue = "Submit"; //"Submit"
+    var $resetValue = "Reset"; //"Reset"
     
     var $inputAmount = 1; //1
     var $inputTypes = [""]; //[""]
@@ -103,6 +104,11 @@ class form{
     function set_submitValue($val)
     {
         $this->submitValue = $val;
+    }
+    
+    function set_resetValue($val)
+    {
+        $this->resetValue = $val;
     }
     
     
@@ -213,6 +219,11 @@ class form{
         return $this->submitValue;
     }
     
+    function get_resetValue()
+    {
+        return $this->resetValue;
+    }
+    
     
     
     function get_inputAmount($amount)
@@ -288,7 +299,12 @@ class form{
     
     function con_submit()
     {
-        return('<br><input type="submit" name="submit" class="submit '.$this->preset.'" value="'.$this->submitValue.'"/>');
+        return('<input type="submit" name="submit" class="submit '.$this->preset.'" value="'.$this->submitValue.'"/>');
+    }
+    
+    function con_reset()
+    {
+        return('<input type="button" name="resetButton" onclick="resetForm()" class="resetButton '.$this->preset.'" value="'.$this->resetValue.'"/>');
     }
     
     function con_inputs()
@@ -421,13 +437,34 @@ class form{
         {
             echo('<link rel="stylesheet" type="text/css" href="'.$this->cssPath.'"/>');
         }
+     
+        if(($this->useReset == true) and ($this->formId !=""))
+        {
+            echo('
+            <script>
+                function resetForm()
+                {
+                    document.getElementById("'.$this->formId.'").reset();
+                    //document.getElementById("myForm").reset();
+                }
+            </script>
+            ');
+            
+        }
     
         echo('</head>
             <body>');
         echo('<form method="'.$this->formMethod.'" action="'.$this->formAction.'" class="'.$this->preset.'" style="width:'.$this->inputWidth.'; font-family:'.$this->fontFamily.'" id="'.$this->formId.'">');
         $this->con_inputs();
+        if(($this->useReset == true) and ($this->formId !=""))
+        {
+            echo($this->con_reset());
+        }
         echo($this->con_submit());
+        
         echo("</form>");
+     
+        
         
     }
   
@@ -460,12 +497,18 @@ $forma->inputsRequired = [true,true,true,false,false,false,false];
 $forma->inputsReadOnly[3]=true;
 $forma->inputWidth = "512px";
 $forma->usePlaceholders = true;
+$forma->useReset = true;
 $forma->inputPlaceholders = ["Jméno","Příjmení","Pohlaví","Město","Ulice","Číslo domu","PSČ"];
 $forma->submitValue = "Odeslat";
+$forma->resetValue = "Resetovat";
+$forma->formId="myForm";
 $forma->con_form();
     
     echo("<br><br><br>");
     help();
+
+
+
 
 echo('</body>
 </html>');
