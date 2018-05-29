@@ -12,7 +12,7 @@ function help()
         echo("<strong>inputLabels</strong> - content of all labels<br>");
         echo("<strong>inputPlaceholders</strong> - placeholder content, not needed if usePlaceholders is false<br>");
         echo("<strong>inputValues</strong> - beginning values inside the fields, not required<br>");
-        echo("<strong>inputWidth</strong> - size of an input field compared to outer div<br>");
+        echo("<strong>formWidth</strong> - size of an input field compared to outer div<br>");
         echo("<strong>preset</strong> - Gives you a choice of presets<br>");
         echo("<strong>Current presets available:</strong>");
             echo("<ul>");
@@ -37,6 +37,7 @@ class form{
     var $formMethod = "POST"; //"POST"
     var $formAction = ""; //""
     var $formId = ""; //""
+    var $formWidth = "90%"; //"90%"
     
     var $usePlaceholders = false; //false
     var $useReset = false; //false
@@ -51,7 +52,6 @@ class form{
     var $inputLabels = [""]; //[""]
     var $inputPlaceholders = [""]; //[""]
     var $inputValues = [""]; //[""]
-    var $inputWidth = "90%"; //"90%"
     var $inputsRequired = [false]; //[false]
     var $inputsReadOnly = [false]; //[false]
     
@@ -143,9 +143,9 @@ class form{
         $this->inputValues = $values;
     }
     
-    function set_inputWidth($width) 
+    function set_formWidth($width) 
     {
-        $this->inputWidth = $width;
+        $this->formWidth = $width;
     }
     
     function set_inputsRequired($bools)
@@ -256,9 +256,9 @@ class form{
         return $this->inputValues;
     }
     
-    function get_inputWidth() 
+    function get_formWidth() 
     {
-        return $this->inputWidth;
+        return $this->formWidth;
     }
     
     function get_inputsRequired()
@@ -454,7 +454,7 @@ class form{
     
         echo('</head>
             <body>');
-        echo('<form method="'.$this->formMethod.'" action="'.$this->formAction.'" class="'.$this->preset.'" style="width:'.$this->inputWidth.'; font-family:'.$this->fontFamily.'" id="'.$this->formId.'">');
+        echo('<form method="'.$this->formMethod.'" action="'.$this->formAction.'" class="'.$this->preset.'" style="width:'.$this->formWidth.'; font-family:'.$this->fontFamily.'" id="'.$this->formId.'">');
         $this->con_inputs();
         if(($this->useReset == true) and ($this->formId !=""))
         {
@@ -479,7 +479,7 @@ $form->inputTypes = ["text"];
 $form->inputLabels = ["Vstup 1:"];
 $form->inputNames = ["Jmeno"];
 $form->inputValues = [""];
-$form->inputWidth = "300px";
+$form->formWidth = "300px";
 $form->usePlaceholders = false;
 $form->con_form();
     
@@ -495,7 +495,7 @@ $forma->inputNames = ["Jmeno","Prijmeni","Pohlavi","Mesto","Ulice","cp","psc"];
 $forma->inputValues = [""];
 $forma->inputsRequired = [true,true,true,false,false,false,false];
 $forma->inputsReadOnly[3]=true;
-$forma->inputWidth = "512px";
+$forma->formWidth = "512px";
 $forma->usePlaceholders = true;
 $forma->useReset = true;
 $forma->inputPlaceholders = ["Jméno","Příjmení","Pohlaví","Město","Ulice","Číslo domu","PSČ"];
