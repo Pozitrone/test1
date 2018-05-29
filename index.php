@@ -54,6 +54,7 @@ class form{
     var $inputValues = [""]; //[""]
     var $inputWidth = "90%"; //"90%"
     var $inputsRequired = [false]; //[false]
+    var $inputsReadOnly = [false]; //[false]
     
     var $useCustomCSS = false; //false
     var $cssPath = "";
@@ -132,6 +133,11 @@ class form{
     function set_inputsRequired($bools)
     {
         $this->inputsRequired = $bools;
+    }
+    
+    function set_inputsReadOnly($bools)
+    {
+        $this->inputsReadOnly = $bools;
     }
     
     
@@ -225,6 +231,11 @@ class form{
         return $this->inputsRequired;
     }
     
+    function get_inputsReadOnly()
+    {
+        return $this->inputsReadOnly;
+    }
+    
     
     
     function get_formId()
@@ -290,10 +301,16 @@ class form{
                 $placeholder[$i]='';
             }
             
-            if((strtolower($this->inputsRequired[$i])!=true) 
-               and (strtolower($this->inputsRequired[$i])!=false))
+            if(((strtolower($this->inputsRequired[$i])!=true) 
+               and (strtolower($this->inputsRequired[$i])!=false)) or (!isset($this->inputsRequired)))
             {
                 $this->inputsRequired[$i]= false;
+            }
+            
+            if(((strtolower($this->inputsReadOnly[$i])!=true) 
+               and (strtolower($this->inputsReadOnly[$i])!=false)) or (!isset($this->inputsReadOnly)))
+            {
+                $this->inputsReadOnly[$i]= false;
             }
             
             if(($this->inputTypes[$i]!="textarea") and (strpos($this->inputTypes[$i],"select")===false))
@@ -307,6 +324,7 @@ class form{
                 '.$placeholder[$i].' 
                 value="'.$this->inputValues[$i].'"');
                 if($this->inputsRequired[$i]==true){echo(" required");} 
+                if($this->inputsReadOnly[$i]==true){echo(" readonly");}
                 echo('/><br>');
             }
             else if ($this->inputTypes[$i]=="textarea")
@@ -318,7 +336,8 @@ class form{
                 name="'.$this->inputNames[$i].'"
                 '.$placeholder[$i].'  
                 value="'.$this->inputValues.'"');
-                if($this->inputsRequired[$i]==true){echo(" required");} 
+                if($this->inputsRequired[$i]==true){echo(" required");}
+                if($this->inputsReadOnly[$i]==true){echo(" readonly");}
                 echo('/><br>');   
             }
             else if (strpos($this->inputTypes[$i],"select")!==false)
@@ -328,6 +347,7 @@ class form{
                 echo('<select class="'.$this->preset.'" 
                 name="'.$this->inputNames[$i].'"'); 
                 if($this->inputsRequired[$i]==true){echo(" required");} 
+                if($this->inputsReadOnly[$i]==true){echo(" readonly");}
                 echo('>');
                 $opts = explode(",",$this->inputTypes[$i]);
                 
@@ -403,6 +423,7 @@ $forma->inputLabels = ["Jméno","Příjmení","Pohlaví","Město","Ulice","Čís
 $forma->inputNames = ["Jmeno","Prijmeni","Pohlavi","Mesto","Ulice","cp","psc"];
 $forma->inputValues = [""];
 $forma->inputsRequired = [true,true,true,false,false,false,false];
+$forma->inputsReadOnly = [false,false,false,false,true,false,false];
 $forma->inputWidth = "512px";
 $forma->usePlaceholders = true;
 $forma->inputPlaceholders = ["Jméno","Příjmení","Pohlaví","Město","Ulice","Číslo domu","PSČ"];
