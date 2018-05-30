@@ -38,3 +38,14 @@ form.smooth
     width:100px;
     font-weight: bold;
 }
+
+.check.smooth, .radio.smooth
+{
+    width:16px !important;
+}
+
+.color.smooth
+{
+    width:33%;
+    height:3em;
+}

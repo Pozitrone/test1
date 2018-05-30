@@ -370,8 +370,9 @@ class form{
                 echo('
                 <label for="'.$this->inputNames[$i].'" class="'.$this->preset.'">'.$this->inputLabels[$i].' </label>'
                 .'<br>'. 
-                '<input class="'.$this->preset.'"
-                type="'.$this->inputTypes[$i].'"
+                '<input class="'.$this->preset);
+                    if($this->inputTypes[$i]=="color"){echo(" color");}
+                echo('" type="'.$this->inputTypes[$i].'"
                 name="'.$this->inputNames[$i].'" 
                 '.$placeholder[$i].' 
                 value="'.$this->inputValues[$i].'"');
@@ -441,7 +442,7 @@ class form{
                     
                     if($j==0)
                     {
-                        echo('<input type="radio" class="'.$this->preset.'" id="radio-'.$i.'-'.$j.'" value="'.substr($opts[$j],6).'" name="'.$this->inputNames[$i].'"');
+                        echo('<input type="radio" class="'.$this->preset.' radio" id="radio-'.$i.'-'.$j.'" value="'.substr($opts[$j],6).'" name="'.$this->inputNames[$i].'"');
                              if($this->inputsRequired[$i]==true){echo(" required");} 
                              if($this->inputsReadOnly[$i]==true){echo(" readonly");}
                              echo('/>');
@@ -449,7 +450,7 @@ class form{
                     }
                     else if($j==substr_count($this->inputTypes[$i],","))
                     {
-                        echo('<input type="radio" class="'.$this->preset.'" id="radio-'.$i.'-'.$j.'" value="'.substr($opts[$j], 0, -1).'" name="'.$this->inputNames[$i].'"');
+                        echo('<input type="radio" class="'.$this->preset.' radio" id="radio-'.$i.'-'.$j.'" value="'.substr($opts[$j], 0, -1).'" name="'.$this->inputNames[$i].'"');
                              if($this->inputsRequired[$i]==true){echo(" required");} 
                              if($this->inputsReadOnly[$i]==true){echo(" readonly");}
                              echo('/>');
@@ -457,7 +458,7 @@ class form{
                     }
                     else
                     {
-                        echo('<input type="radio" class="'.$this->preset.'" id="radio-'.$i.'-'.$j.'" value="'.$opts[$j].'" name="'.$this->inputNames[$i].'"');
+                        echo('<input type="radio" class="'.$this->preset.' radio" id="radio-'.$i.'-'.$j.'" value="'.$opts[$j].'" name="'.$this->inputNames[$i].'"');
                              if($this->inputsRequired[$i]==true){echo(" required");} 
                              if($this->inputsReadOnly[$i]==true){echo(" readonly");}
                              echo('/>');
