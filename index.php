@@ -478,7 +478,7 @@ class form{
                     
                     if($j==0)
                     {
-                        echo('<input type="checkbox" class="'.$this->preset.'" id="checkbox-'.$i.'-'.$j.'" value="'.substr($opts[$j],9).'" name="'.$this->inputNames[$i].'"');
+                        echo('<input type="checkbox" class="'.$this->preset.' check" id="checkbox-'.$i.'-'.$j.'" value="'.substr($opts[$j],9).'" name="'.$this->inputNames[$i].'"');
                              if($this->inputsRequired[$i]==true){echo(" required");} 
                              if($this->inputsReadOnly[$i]==true){echo(" readonly");}
                              echo('/>');
@@ -486,7 +486,7 @@ class form{
                     }
                     else if($j==substr_count($this->inputTypes[$i],","))
                     {
-                        echo('<input type="checkbox" class="'.$this->preset.'" id="checkbox-'.$i.'-'.$j.'" value="'.substr($opts[$j], 0, -1).'" name="'.$this->inputNames[$i].'"');
+                        echo('<input type="checkbox" class="'.$this->preset.' check" id="checkbox-'.$i.'-'.$j.'" value="'.substr($opts[$j], 0, -1).'" name="'.$this->inputNames[$i].'"');
                              if($this->inputsRequired[$i]==true){echo(" required");} 
                              if($this->inputsReadOnly[$i]==true){echo(" readonly");}
                              echo('/>');
@@ -494,7 +494,7 @@ class form{
                     }
                     else
                     {
-                        echo('<input type="checkbox" class="'.$this->preset.'" id="checkbox-'.$i.'-'.$j.'" value="'.$opts[$j].'" name="'.$this->inputNames[$i].'"');
+                        echo('<input type="checkbox" class="'.$this->preset.' check" id="checkbox-'.$i.'-'.$j.'" value="'.$opts[$j].'" name="'.$this->inputNames[$i].'"');
                              if($this->inputsRequired[$i]==true){echo(" required");} 
                              if($this->inputsReadOnly[$i]==true){echo(" readonly");}
                              echo('/>');
@@ -593,6 +593,8 @@ echo("<br><br><br>");
 echo("All input types");
 $typez = new form;
 $typez->inputAmount = 10;
+$typez->preset = "smooth";
+$typez->formWidth = "256px";
 $typez->inputTypes = ["text","password","select(This,Is,Select)","radio(This,Is,Radio)","textarea","checkbox(These,Are,Checkboxes)","color","date","email","number"];
 $typez->inputNames = ["Text","Password","Select","Radio","textarea","Checkbox","Color","Date","Email","Number"];
 $typez->inputLabels = ["Text","Password","Select","Radio","textarea","Checkbox","Color","Date","Email","Number"];
