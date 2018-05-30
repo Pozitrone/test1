@@ -363,6 +363,8 @@ class form{
                 $this->inputsReadOnly[$i]= false;
             }
             
+            /* DEFAULT INPUTS */
+            
             if(($this->inputTypes[$i]!="textarea") and (strpos($this->inputTypes[$i],"select")===false)  and (strpos($this->inputTypes[$i],"checkbox")===false)  and (strpos($this->inputTypes[$i],"radio")===false))
             {
                 echo('
@@ -377,6 +379,9 @@ class form{
                 if($this->inputsReadOnly[$i]==true){echo(" readonly");}
                 echo('/><br>');
             }
+            
+            /* TEXTAREA */
+            
             else if ($this->inputTypes[$i]=="textarea")
             {
                 echo('
@@ -390,6 +395,9 @@ class form{
                 if($this->inputsReadOnly[$i]==true){echo(" readonly");}
                 echo('/></textarea><br>');   
             }
+            
+            /* SELECT */
+            
             else if (strpos($this->inputTypes[$i],"select")!==false)
             {
                 echo('<label for="'.$this->inputNames[$i].'" class="'.$this->preset.'">'.$this->inputLabels[$i].' </label>
@@ -421,6 +429,9 @@ class form{
                 }
                 echo("</select><br>");
             }
+            
+            /* RADIO */
+            
             else if (strpos($this->inputTypes[$i],"radio")!==false)
             {
                 $opts = explode(",",$this->inputTypes[$i]);
@@ -453,8 +464,12 @@ class form{
                         echo('<label for="radio-'.$i.'-'.$j.'">'.$opts[$j].'</label>');
                     }
                 }
-                echo("</select><br>");
             }
+            
+            /* CHECKBOX */
+            
+            
+            
         }
         return null;
     }
