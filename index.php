@@ -469,6 +469,40 @@ class form{
             
             /* CHECKBOX */
             
+            else if (strpos($this->inputTypes[$i],"checkbox")!==false)
+            {
+                $opts = explode(",",$this->inputTypes[$i]);
+                
+                for($j=0;$j<=substr_count($this->inputTypes[$i],",");$j++)
+                {
+                    
+                    if($j==0)
+                    {
+                        echo('<input type="checkbox" class="'.$this->preset.'" id="checkbox-'.$i.'-'.$j.'" value="'.substr($opts[$j],9).'" name="'.$this->inputNames[$i].'"');
+                             if($this->inputsRequired[$i]==true){echo(" required");} 
+                             if($this->inputsReadOnly[$i]==true){echo(" readonly");}
+                             echo('/>');
+                        echo('<label for="checkbox-'.$i.'-'.$j.'">'.substr($opts[$j],9).'</label>');
+                    }
+                    else if($j==substr_count($this->inputTypes[$i],","))
+                    {
+                        echo('<input type="checkbox" class="'.$this->preset.'" id="checkbox-'.$i.'-'.$j.'" value="'.substr($opts[$j], 0, -1).'" name="'.$this->inputNames[$i].'"');
+                             if($this->inputsRequired[$i]==true){echo(" required");} 
+                             if($this->inputsReadOnly[$i]==true){echo(" readonly");}
+                             echo('/>');
+                        echo('<label for="checkbox-'.$i.'-'.$j.'">'.substr($opts[$j], 0, -1).'</label>');
+                    }
+                    else
+                    {
+                        echo('<input type="checkbox" class="'.$this->preset.'" id="checkbox-'.$i.'-'.$j.'" value="'.$opts[$j].'" name="'.$this->inputNames[$i].'"');
+                             if($this->inputsRequired[$i]==true){echo(" required");} 
+                             if($this->inputsReadOnly[$i]==true){echo(" readonly");}
+                             echo('/>');
+                        echo('<label for="checkbox-'.$i.'-'.$j.'">'.$opts[$j].'</label>');
+                    }
+                }
+                echo("<br>");
+            }
             
             
         }
