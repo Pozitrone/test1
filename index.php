@@ -464,6 +464,7 @@ class form{
                         echo('<label for="radio-'.$i.'-'.$j.'">'.$opts[$j].'</label>');
                     }
                 }
+                echo("<br>");
             }
             
             /* CHECKBOX */
