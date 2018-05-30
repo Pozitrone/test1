@@ -363,7 +363,7 @@ class form{
                 $this->inputsReadOnly[$i]= false;
             }
             
-            if(($this->inputTypes[$i]!="textarea") and (strpos($this->inputTypes[$i],"select")===false))
+            if(($this->inputTypes[$i]!="textarea") and (strpos($this->inputTypes[$i],"select")===false)  and (strpos($this->inputTypes[$i],"checkbox")===false)  and (strpos($this->inputTypes[$i],"radio")===false))
             {
                 echo('
                 <label for="'.$this->inputNames[$i].'" class="'.$this->preset.'">'.$this->inputLabels[$i].' </label>'
@@ -380,15 +380,15 @@ class form{
             else if ($this->inputTypes[$i]=="textarea")
             {
                 echo('
-                <label for="'.$this->inputNames[$i].'" class="'.$this->preset.'">'.$this->inputLabels.'</label>'
+                <label for="'.$this->inputNames[$i].'" class="'.$this->preset.'">'.$this->inputLabels[$i].'</label>'
                 .'<br>'. 
                 '<textarea class="'.$this->preset.'"
                 name="'.$this->inputNames[$i].'"
                 '.$placeholder[$i].'  
-                value="'.$this->inputValues.'"');
+                value="'.$this->inputValues[$i].'"');
                 if($this->inputsRequired[$i]==true){echo(" required");}
                 if($this->inputsReadOnly[$i]==true){echo(" readonly");}
-                echo('/><br>');   
+                echo('/></textarea><br>');   
             }
             else if (strpos($this->inputTypes[$i],"select")!==false)
             {
@@ -417,6 +417,40 @@ class form{
                     {
                         echo('<option class="'.$this->preset.'"
                         value="'.$opts[$j].'">'.$opts[$j].'</option>');
+                    }
+                }
+                echo("</select><br>");
+            }
+            else if (strpos($this->inputTypes[$i],"radio")!==false)
+            {
+                $opts = explode(",",$this->inputTypes[$i]);
+                
+                for($j=0;$j<=substr_count($this->inputTypes[$i],",");$j++)
+                {
+                    
+                    if($j==0)
+                    {
+                        echo('<input type="radio" class="'.$this->preset.'" id="radio-'.$i.'-'.$j.'" value="'.substr($opts[$j],6).'" name="'.$this->inputNames[$i].'"');
+                             if($this->inputsRequired[$i]==true){echo(" required");} 
+                             if($this->inputsReadOnly[$i]==true){echo(" readonly");}
+                             echo('/>');
+                        echo('<label for="radio-'.$i.'-'.$j.'">'.substr($opts[$j],6).'</label>');
+                    }
+                    else if($j==substr_count($this->inputTypes[$i],","))
+                    {
+                        echo('<input type="radio" class="'.$this->preset.'" id="radio-'.$i.'-'.$j.'" value="'.substr($opts[$j], 0, -1).'" name="'.$this->inputNames[$i].'"');
+                             if($this->inputsRequired[$i]==true){echo(" required");} 
+                             if($this->inputsReadOnly[$i]==true){echo(" readonly");}
+                             echo('/>');
+                        echo('<label for="radio-'.$i.'-'.$j.'">'.substr($opts[$j], 0, -1).'</label>');
+                    }
+                    else
+                    {
+                        echo('<input type="radio" class="'.$this->preset.'" id="radio-'.$i.'-'.$j.'" value="'.$opts[$j].'" name="'.$this->inputNames[$i].'"');
+                             if($this->inputsRequired[$i]==true){echo(" required");} 
+                             if($this->inputsReadOnly[$i]==true){echo(" readonly");}
+                             echo('/>');
+                        echo('<label for="radio-'.$i.'-'.$j.'">'.$opts[$j].'</label>');
                     }
                 }
                 echo("</select><br>");
@@ -503,6 +537,20 @@ $forma->submitValue = "Odeslat";
 $forma->resetValue = "Resetovat";
 $forma->formId="myForm";
 $forma->con_form();
+
+
+echo("<br><br><br>");
+echo("All input types");
+$typez = new form;
+$typez->inputAmount = 10;
+$typez->inputTypes = ["text","password","select(This,Is,Select)","radio(This,Is,Radio)","textarea","checkbox(These,Are,Checkboxes)","color","date","email","number"];
+$typez->inputNames = ["Text","Password","Select","Radio","textarea","Checkbox","Color","Date","Email","Number"];
+$typez->inputLabels = ["Text","Password","Select","Radio","textarea","Checkbox","Color","Date","Email","Number"];
+$typez->usePlaceholders = false;
+$typez->useReset = false;
+$typez->formId = "typeZ";
+$typez->con_form();
+
     
     echo("<br><br><br>");
     help();
