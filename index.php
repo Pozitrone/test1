@@ -188,6 +188,33 @@ class form{
     {
         $this->cssPath = $path;
     }
+    
+    
+    
+    function set_colorInputBg($color)
+    {
+        $this->colorInputBg = $color;
+    }
+    
+    function set_colorFont($color)
+    {
+        $this->colorFont = $color;
+    }
+    
+    function set_colorLabelFont($color)
+    {
+        $this->colorLabelFont = $color;
+    }
+    
+    function set_colorBorders($color)
+    {
+        $this->colorBorders = $color;
+    }
+    
+    function set_colorFormBg($color)
+    {
+        $this->colorFormBg = $color;
+    }
 
     
 /* GETTER FUNCTIONS */
