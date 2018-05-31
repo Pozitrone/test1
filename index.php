@@ -329,6 +329,35 @@ class form{
         return $this->cssPath;
     }
 
+    
+    
+    function get_colorInputBg()
+    {
+        return $this->colorInputBg;
+    }
+    
+    function get_colorFont()
+    {
+        return $this->colorFont;
+    }
+    
+    function get_colorLabelFont()
+    {
+        return $this->colorLabelFont;
+    }
+    
+    function get_colorBorders()
+    {
+        return $this->colorBorders;
+    }
+    
+    function get_colorFormBg()
+    {
+        return $this->colorFormBg;
+    }
+    
+    
+    
 /* CONSTRUCTING FUNCTIONS */
     
     function con_submit()
