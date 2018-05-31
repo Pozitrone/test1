@@ -41,6 +41,7 @@ class form{
     
     var $usePlaceholders = false; //false
     var $useReset = false; //false
+    var $useCustomColors = false; //false
     
     var $submitValue = "Submit"; //"Submit"
     var $resetValue = "Reset"; //"Reset"
@@ -59,6 +60,11 @@ class form{
     var $cssPath = "";
     var $fontFamily = "sans-serif"; //"sans-serif"
     var $preset = "Default"; //"Default"
+    
+    var $colorFormBg = "#fff"; //"#fff"
+    var $colorFont = "#000"; //"#000"
+    var $colorBorders = "#000"; //"#000"
+    var $colorInputBg = "#fff"; //"#fff"
     
 
     
