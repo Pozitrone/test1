@@ -65,6 +65,7 @@ class form{
     var $colorFont = "#000"; //"#000"
     var $colorBorders = "#000"; //"#000"
     var $colorInputBg = "#fff"; //"#fff"
+    var $colorLabelFont = "#000"; //"#000"
     
 
     
@@ -542,6 +543,45 @@ class form{
             ');
             
         }
+     
+        if($this->useCustomColors == true)
+        {
+            echo('<style>');
+            echo(
+                ':root
+                    {
+                        --colorFont:'.$this->colorFont.';
+                        --colorFormBg:'.$this->colorFormBg.';
+                        --colorBorders:'.$this->colorBorders.';
+                        --colorInputBg:'.$this->colorInputBg.';
+                        --colorLabelFont:'.$this->colorLabelFont.';
+                    }
+                    
+                #'.$this->formId.' > input, #'.$this->formId.' > select, #'.$this->formId.' > textarea
+                    {
+                        border-color:var(--colorBorders) !important;
+                        background-color:var(--colorInputBg) !important;
+                        color:var(--colorFont) !important;
+                    }
+                #'.$this->formId.' > label
+                    {
+                        color:var(--colorLabelFont) !important;
+                    }  
+                #'.$this->formId.' > form
+                    {
+                        background-color:var(--colorFormBg) !important;
+                    }
+                #'.$this->formId.' > .submit, .resetButton
+                    {
+                        color:var(--colorFont) !important;
+                    }
+                #'.$this->formId.' > .check, .radio, .color
+                    {
+                        border.color:var(--colorBorders) !important;
+                    }');
+            echo('</style>');
+            
+        }
     
         echo('</head>
             <body>');
@@ -608,6 +648,7 @@ $typez->inputLabels = ["Text","Password","Select","Radio","textarea","Checkbox",
 $typez->usePlaceholders = false;
 $typez->useReset = false;
 $typez->formId = "typeZ";
+$typez->useCustomColors = true;
 $typez->con_form();
 
     
