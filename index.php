@@ -56,6 +56,8 @@ class form{
     var $inputsRequired = [false]; //[false]
     var $inputsReadOnly = [false]; //[false]
     
+    var $setFieldsets = [""]; //[""]
+    
     var $useCustomCSS = false; //false
     var $cssPath = "";
     var $fontFamily = "sans-serif"; //"sans-serif"
@@ -372,6 +374,16 @@ class form{
     
     function con_inputs()
     {
+        
+        if($this->setFieldsets[0]!= "")
+        {
+            $k=0;
+            $values = explode(",",substr($this->setFieldsets[$k],strpos($this->setFieldsets[$k],"("), strpos($this->setFieldsets[$k],")")-strpos($this->setFieldsets[$k],"(")));
+            $start = min($values);
+            $stop = max($values);
+        }
+        
+        
         for($i=0; $i<$this->inputAmount;$i++)
         {
             if((!isset($this->inputTypes[$i])) or ($this->inputTypes[$i] == ""))
@@ -689,6 +701,7 @@ $forma->inputPlaceholders = ["Jméno","Příjmení","Pohlaví","Město","Ulice",
 $forma->submitValue = "Odeslat";
 $forma->resetValue = "Resetovat";
 $forma->formId="myForm";
+$forma->setFieldsets = ["O mě(0,2)","Adresa(3,6)"];
 $forma->con_form();
 
 
