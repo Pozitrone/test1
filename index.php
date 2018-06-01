@@ -375,17 +375,25 @@ class form{
     function con_inputs()
     {
         
-        if($this->setFieldsets[0]!= "")
-        {
-            $k=0;
-            $values = explode(",",substr($this->setFieldsets[$k],strpos($this->setFieldsets[$k],"("), strpos($this->setFieldsets[$k],")")-strpos($this->setFieldsets[$k],"(")));
-            $start = min($values);
-            $stop = max($values);
-        }
         
+        $k=0;
         
         for($i=0; $i<$this->inputAmount;$i++)
         {
+            
+            if($this->setFieldsets[0]!= "")
+            {
+            $values = explode(",",substr($this->setFieldsets[$k],strpos($this->setFieldsets[$k],"(")+1, strpos($this->setFieldsets[$k],")")-strpos($this->setFieldsets[$k],"(")-1));
+            $start = min($values);
+            $stop = max($values);
+            $text = substr($this->setFieldsets[$k],0,strpos($this->setFieldsets[$k],"("));   
+                if($stop == $i)
+                {
+                    $k++;
+                }
+            }
+            
+            
             if((!isset($this->inputTypes[$i])) or ($this->inputTypes[$i] == ""))
             {
                 $this->inputTypes[$i] = $this->inputTypeDefault;
@@ -437,6 +445,16 @@ class form{
             {
                 $this->inputsReadOnly[$i]= false;
             }
+            
+            if($this->setFieldsets[0]!= "")
+            {
+                if($i == $start)
+                {
+                    echo('<fieldset>');
+                    echo('<legend>'.$text.'</legend>');
+                }
+            }
+            
             
             /* DEFAULT INPUTS */
             
@@ -580,6 +598,13 @@ class form{
                 echo("<br>");
             }
             
+            if($this->setFieldsets[0]!= "")
+            {
+                if($i == $stop)
+                {
+                    echo('</fieldset>');
+                }
+            }
             
         }
         return null;
