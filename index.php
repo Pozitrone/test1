@@ -450,7 +450,7 @@ class form{
             {
                 if($i == $start)
                 {
-                    echo('<fieldset>');
+                    echo('<fieldset class="'.$this->preset.'">');
                     echo('<legend>'.$text.'</legend>');
                 }
             }
