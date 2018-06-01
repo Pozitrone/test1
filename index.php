@@ -672,6 +672,10 @@ class form{
                     {
                         border-color:var(--colorBorders) !important;
                     }
+                #'.$this->formId.' > legend
+                    {
+                        border-color:var(--colorLabelFont) !important;
+                    }
                 #'.$this->formId.' > fieldset.smooth
                     {
                         border-color:var(--colorBorders) !important;
