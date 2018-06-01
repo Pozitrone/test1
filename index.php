@@ -670,7 +670,11 @@ class form{
                     }
                 #'.$this->formId.' > .check, .radio, .color
                     {
-                        border.color:var(--colorBorders) !important;
+                        border-color:var(--colorBorders) !important;
+                    }
+                #'.$this->formId.' > fieldset.smooth
+                    {
+                        border-color:var(--colorBorders) !important;
                     }');
             echo('</style>');
             

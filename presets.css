@@ -25,17 +25,18 @@ form.smooth
     padding:10px;
     background-color:#eee;
     display:block;
+    
 }
 
 .submit.smooth
 {
-    width:100px;
-    font-weight: bold;
+    width:150px;
+    font-weight: bold;  
 }
 
 .resetButton.smooth
 {
-    width:100px;
+    width:150px;
     font-weight: bold;
 }
 
@@ -48,4 +49,16 @@ form.smooth
 {
     width:33%;
     height:3em;
+}
+
+fieldset.smooth
+{
+    border-color:#3333ff;
+    border-radius: 10px;
+}
+
+legend
+{
+    font-weight:bold;
+    font-size:1.25em;
 }
