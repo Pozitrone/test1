@@ -675,11 +675,11 @@ class form{
                     {
                         background-color:var(--colorFormBg) !important;
                     }
-                #'.$this->formId.' > .submit, .resetButton
+                #'.$this->formId.' > .submit, #'.$this->formId.' > .resetButton
                     {
                         color:var(--colorFont) !important;
                     }
-                #'.$this->formId.' > .check, .radio, .color
+                #'.$this->formId.' > .check, #'.$this->formId.' > .radio, #'.$this->formId.' > .color
                     {
                         border-color:var(--colorBorders) !important;
                     }
