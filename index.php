@@ -780,7 +780,7 @@ $typez->inputLabels = ["Text","Password","Select","Radio","textarea","Checkbox",
 $typez->usePlaceholders = false;
 $typez->useReset = false;
 $typez->formId = "typeZ";
-$typez->useCustomColors = true;
+$typez->useCustomColors = false;
 $typez->con_form();
 
     
