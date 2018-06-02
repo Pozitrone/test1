@@ -763,7 +763,7 @@ $forma->useReset = true;
 $forma->inputPlaceholders = ["Jméno","Příjmení","Pohlaví","Město","Ulice","Číslo domu","PSČ"];
 $forma->submitValue = "Odeslat";
 $forma->resetValue = "Resetovat";
-$forma->formId="myForm";
+$forma->formId="myFormNight";
 $forma->setFieldsets = ["O mě(0,2)","Adresa(3,6)"];
 $forma->con_form();
 
