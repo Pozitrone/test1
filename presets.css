@@ -1,3 +1,12 @@
+/* ALL */
+
+legend
+{
+    font-weight:bold;
+    font-size:1.25em;
+}
+
+/* SMOOTH */
 input.smooth, select.smooth, textarea.smooth{
     background-color:#ddd;
     font-family:sans-serif;
@@ -6,6 +15,7 @@ input.smooth, select.smooth, textarea.smooth{
     padding:5px;
     margin:5px;
     width:97.5%;
+    color:#000;
 }
 
 select.smooth
@@ -18,6 +28,7 @@ label.smooth
     margin:5px;
     font-family:sans-serif;
     font-weight: bold;
+    color:#000;
 }
 
 form.smooth
@@ -38,6 +49,7 @@ form.smooth
 {
     width:150px;
     font-weight: bold;
+    color:#000;
 }
 
 .check.smooth, .radio.smooth
@@ -55,10 +67,70 @@ fieldset.smooth
 {
     border-color:#3333ff;
     border-radius: 10px;
+    color:#000;
 }
 
-legend
+/* SMOOTHNIGHT */
+
+input.smoothNight, select.smoothNight, textarea.smoothNight{
+    background-color:#222;
+    font-family:sans-serif;
+    border-radius: 10px;
+    border-color:#52dd9c;
+    padding:5px;
+    margin:5px;
+    width:97.5%;
+    color:#eee;
+}
+
+select.smoothNight
 {
-    font-weight:bold;
-    font-size:1.25em;
+    width:40%;
+}
+
+label.smoothNight
+{
+    margin:5px;
+    font-family:sans-serif;
+    font-weight: bold;
+    color:#eee;
+}
+
+form.smoothNight
+{
+    padding:10px;
+    background-color:#555;
+    display:block;
+    
+}
+
+.submit.smoothNight
+{
+    width:150px;
+    font-weight: bold;  
+}
+
+.resetButton.smoothNight
+{
+    width:150px;
+    font-weight: bold;
+    color:#eee;
+}
+
+.check.smoothNight, .radio.smoothNight
+{
+    width:16px !important;
+}
+
+.color.smoothNight
+{
+    width:33%;
+    height:3em;
+}
+
+fieldset.smoothNight
+{
+    border-color:#52dd9c;
+    border-radius: 10px;
+    color:#eee;
 }
