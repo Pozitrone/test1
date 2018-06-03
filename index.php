@@ -380,7 +380,7 @@ class form{
     
     function con_reset()
     {
-        return('<input type="button" name="resetButton" onclick="resetForm()" class="resetButton '.$this->preset.'" value="'.$this->resetValue.'"/>');
+        return('<input type="button" name="resetButton" onclick="resetFormID'.$this->formId.'()" class="resetButton '.$this->preset.'" value="'.$this->resetValue.'"/>');
     }
     
     function con_inputs()
@@ -638,10 +638,9 @@ class form{
         {
             echo('
             <script>
-                function resetForm()
+                function resetFormID'.$this->formId.'()
                 {
                     document.getElementById("'.$this->formId.'").reset();
-                    //document.getElementById("myForm").reset();
                 }
             </script>
             ');
