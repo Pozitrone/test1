@@ -1,4 +1,6 @@
 <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg"
 xmlns:xlink="http://www.w3.org/1999/xlink">
-    <polygon stroke-linejoin="round" points="100,50 50,150 150,150" stroke="black" stroke-width="10" fill="yellow"></polygon>
+    <polygon stroke-linejoin="round" points="100,50 40,150 160,150" stroke="black" stroke-width="10" fill="yellow"></polygon>
+    <line x1="100" y1="85" x2="100" y2="115" stroke="black" stroke-width="10" stroke-linecap="round"></line>
+    <line x1="100" y1="130" x2="100" y2="130" stroke="black" stroke-width="10" stroke-linecap="round"></line>
 </svg>
