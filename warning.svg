@@ -1,0 +1,4 @@
+<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg"
+xmlns:xlink="http://www.w3.org/1999/xlink">
+    <polygon stroke-linejoin="round" points="100,50 50,150 150,150" stroke="black" stroke-width="10" fill="yellow"></polygon>
+</svg>
