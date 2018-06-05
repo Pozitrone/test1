@@ -719,7 +719,51 @@ class form{
         echo("</thead>");
         echo("<tbody>");
         
-            
+            echo("<tr>");
+                echo("<td>formMethod</td>");
+                echo("<td>".$this->formMethod."</td>");
+                echo("<td>Method to be used in the form. Accepts either GET or POST.</td>");
+                echo("<td>POST</td>");
+                if(strtolower($this->formMethod != "post") and strtolower($this->formMethod != "get"))
+                {
+                    echo("<td><img src='error.svg' alt='Error.svg' height='24' width='24' title='Method was not set to POST or GET.' </td>");
+                }
+            echo("</tr>");
+        
+        var $formMethod = "POST"; //"POST"
+    var $formAction = ""; //""
+    var $formId = ""; //""
+    var $formWidth = "90%"; //"90%"
+    
+    var $usePlaceholders = false; //false
+    var $useReset = false; //false
+    var $useCustomColors = false; //false
+    
+    var $submitValue = "Submit"; //"Submit"
+    var $resetValue = "Reset"; //"Reset"
+    
+    var $inputAmount = 1; //1
+    var $inputTypes = [""]; //[""]
+        var $inputTypeDefault = "text"; //text
+    var $inputNames = [""]; //[""]
+    var $inputLabels = [""]; //[""]
+    var $inputPlaceholders = [""]; //[""]
+    var $inputValues = [""]; //[""]
+    var $inputsRequired = [false]; //[false]
+    var $inputsReadOnly = [false]; //[false]
+    
+    var $setFieldsets = [""]; //[""]
+    
+    var $useCustomCSS = false; //false
+    var $cssPath = "";
+    var $fontFamily = "sans-serif"; //"sans-serif"
+    var $preset = "Default"; //"Default"
+    
+    var $colorFormBg = "#fff"; //"#fff"
+    var $colorFont = "#000"; //"#000"
+    var $colorBorders = "#000"; //"#000"
+    var $colorInputBg = "#fff"; //"#fff"
+    var $colorLabelFont = "#000"; //"#000"    
         
         echo("<tbody>");
         echo("<tfoot>");
