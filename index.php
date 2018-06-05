@@ -710,6 +710,20 @@ class form{
         
     }
   
+  
+    function con_status()
+    {
+        echo('<table class="statusTable">');
+        echo("<thead>");
+            echo("<th>Attribute</th><th>Your value</th><th>Description</th><th>Default value</th><th>Status</th>");
+        echo("</thead>");
+        echo("<tbody>");
+        echo("<tbody>");
+        echo("<tfoot>");
+        
+        echo("</tfoot>");
+        echo("</table>");
+    }
     
 }
 
