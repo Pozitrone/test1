@@ -718,9 +718,12 @@ class form{
             echo("<th>Attribute</th><th>Your value</th><th>Description</th><th>Default value</th><th>Status</th>");
         echo("</thead>");
         echo("<tbody>");
+        
+            
+        
         echo("<tbody>");
         echo("<tfoot>");
-        
+            echo("<td>Attribute</td><td>Your value</td><td>Description</td><td>Default value</td><td>Status</td>");
         echo("</tfoot>");
         echo("</table>");
     }
