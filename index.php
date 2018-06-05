@@ -713,6 +713,7 @@ class form{
   
     function con_status()
     {
+        echo("<h2 style='font-family:sans-serif;'>Status:</h2>");
         echo('<table class="statusTable">');
         echo("<thead>");
             echo("<th>Attribute</th><th>Your value</th><th>Description</th><th>Default value</th><th>Status</th>");
@@ -732,7 +733,30 @@ class form{
                 echo("</td>");
             echo("</tr>");
         
-        /*var $formMethod = "POST"; //"POST"
+            echo("<tr>");
+                echo("<td>formAction</td>");
+                echo("<td>");
+                    if($this->formAction == "")
+                    {
+                        echo("<em>empty</em>");
+                    }
+                    else
+                    {
+                        echo($this->formAction);
+                    }
+                echo("</td>");
+                echo("<td>Url where the form should be submited to. Is not required if sending to self.</td>");
+                echo("<td><em>empty<em></td>");
+                echo("<td>");
+                if($this->formAction == "")
+                {
+                    echo("<img src='warning.svg' alt='Warning.svg' height='24' width='24' style='margin:auto;' title='Action attribute was not set. This might not be a problem if targeting self.'>");
+                }
+                echo("</td>");
+            echo("</tr>");
+            
+     /*   
+
     var $formAction = ""; //""
     var $formId = ""; //""
     var $formWidth = "90%"; //"90%"
