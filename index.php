@@ -724,13 +724,15 @@ class form{
                 echo("<td>".$this->formMethod."</td>");
                 echo("<td>Method to be used in the form. Accepts either GET or POST.</td>");
                 echo("<td>POST</td>");
+                echo("<td>");
                 if(strtolower($this->formMethod != "post") and strtolower($this->formMethod != "get"))
                 {
-                    echo("<td><img src='error.svg' alt='Error.svg' height='24' width='24' title='Method was not set to POST or GET.' </td>");
+                    echo("<img src='error.svg' alt='Error.svg' height='24' width='24' style='margin:auto;' title='Method was not set to POST or GET.'>");
                 }
+                echo("</td>");
             echo("</tr>");
         
-        var $formMethod = "POST"; //"POST"
+        /*var $formMethod = "POST"; //"POST"
     var $formAction = ""; //""
     var $formId = ""; //""
     var $formWidth = "90%"; //"90%"
@@ -763,12 +765,9 @@ class form{
     var $colorFont = "#000"; //"#000"
     var $colorBorders = "#000"; //"#000"
     var $colorInputBg = "#fff"; //"#fff"
-    var $colorLabelFont = "#000"; //"#000"    
+    var $colorLabelFont = "#000"; //"#000"  */  
         
         echo("<tbody>");
-        echo("<tfoot>");
-            echo("<td>Attribute</td><td>Your value</td><td>Description</td><td>Default value</td><td>Status</td>");
-        echo("</tfoot>");
         echo("</table>");
     }
     
@@ -856,6 +855,7 @@ $typez = new form;
 $typez->inputAmount = 10;
 $typez->preset = "smooth";
 $typez->formWidth = "256px";
+$typez->formMethod = "get";
 $typez->inputTypes = ["text","password","select(This,Is,Select)","radio(This,Is,Radio)","textarea","checkbox(These,Are,Checkboxes)","color","date","email","number"];
 $typez->inputNames = ["Text","Password","Select","Radio","textarea","Checkbox","Color","Date","Email","Number"];
 $typez->inputLabels = ["Text","Password","Select","Radio","textarea","Checkbox","Color","Date","Email","Number"];
@@ -864,6 +864,7 @@ $typez->useReset = false;
 $typez->formId = "typeZ";
 $typez->useCustomColors = true;
 $typez->con_form();
+$typez->con_status();
 
     
     echo("<br><br><br>");

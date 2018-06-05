@@ -6,6 +6,26 @@ legend
     font-size:1.25em;
 }
 
+.statusTable th
+{
+    text-align: center;
+    padding:5px;
+}
+
+.statusTable td
+{
+    border:1px black solid;
+    padding:5px;
+    text-align:center;
+}
+
+.statusTable
+{
+    border:2px black solid;
+    border-collapse: collapse;
+    
+}
+
 /* SMOOTH */
 
 input.smooth, select.smooth, textarea.smooth{
