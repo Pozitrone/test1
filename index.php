@@ -737,6 +737,8 @@ class form{
                 echo("</td>");
             echo("</tr>");
         
+        
+        
             echo("<tr>");
                 echo("<td>formAction</td>");
                 echo("<td>");
@@ -762,10 +764,27 @@ class form{
                 }
                 echo("</td>");
             echo("</tr>");
+        
+        
+            echo("<tr>");
+                echo("<td>formId</td>");
+                echo("<td>".$this->formId."</td>");
+                echo("<td>Id of your form. Required for some other functions to work properly.</td>");
+                echo("<td><em>empty</em></td>");
+                echo("<td>");
+                if($this->formId == "")
+                {
+                    echo("<img src='error.svg' alt='Error.svg' height='24' width='24' style='margin:auto;' title='Id was not set.'>");
+                }
+                else
+                {
+                    echo("<img src='correct.svg' alt='Correct.svg' height='24' width='24' style='margin:auto;' title='Everything is OK!'>");
+                }
+                echo("</td>");
+            echo("</tr>");
             
      /*   
 
-    var $formAction = ""; //""
     var $formId = ""; //""
     var $formWidth = "90%"; //"90%"
     
