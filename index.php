@@ -799,7 +799,7 @@ class form{
         
         
             echo("<tr>");
-                echo("<td>usePlacehodlers</td>");
+                echo("<td>usePlaceholders</td>");
                 echo("<td>");
                     if(is_bool($this->usePlaceholders))
                     {
@@ -851,10 +851,37 @@ class form{
                 }
                 echo("</td>");
             echo("</tr>");
+        
+        
+        
+            echo("<tr>");
+                echo("<td>useCustomColors</td>");
+                echo("<td>");
+                    if(is_bool($this->useCustomColors))
+                    {
+                        echo($this->useCustomColors ? "true" : "false");
+                    }
+                    else
+                    {
+                        echo($this->useCustomColors);
+                    }
+                echo("</td>");
+                echo("<td>Boolean specifying if you want to use custom colors or not. Requires a formId to work properly.</td>");
+                echo("<td>false</td>");
+                echo("<td>");
+                if(($this->useCustomColors != true) and ($this->useCustomColors != false))
+                {
+                    echo("<img src='error.svg' alt='Error.svg' height='24' width='24' style='margin:auto;' title='".$this->useCustomColors." is not a boolean value!'>");
+                }
+                else
+                {
+                    echo("<img src='correct.svg' alt='Correct.svg' height='24' width='24' style='margin:auto;' title='Everything is OK!'>");
+                }
+                echo("</td>");
+            echo("</tr>");
      /*   
 
     
-    var $useCustomColors = false; //false
     
     var $submitValue = "Submit"; //"Submit"
     var $resetValue = "Reset"; //"Reset"
