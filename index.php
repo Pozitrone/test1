@@ -48,7 +48,7 @@ class form{
     var $formMethod = "POST"; //"POST"
     var $formAction = ""; //""
     var $formId = ""; //""
-    var $formWidth = "90%"; //"90%"
+    var $formWidth = "512px"; //"512px"
     
     var $usePlaceholders = false; //false
     var $useReset = false; //false
@@ -766,6 +766,7 @@ class form{
             echo("</tr>");
         
         
+        
             echo("<tr>");
                 echo("<td>formId</td>");
                 echo("<td>".$this->formId."</td>");
@@ -783,10 +784,19 @@ class form{
                 echo("</td>");
             echo("</tr>");
             
+        
+        
+            echo("<tr>");
+                echo("<td>formWidth</td>");
+                echo("<td>".$this->formWidth."</td>");
+                echo("<td>Width of the form.</td>");
+                echo("<td>512px</td>");
+                echo("<td>");
+                    echo("<img src='correct.svg' alt='Correct.svg' height='24' width='24' style='margin:auto;' title='Everything is OK!'>");
+                echo("</td>");
+            echo("</tr>");
      /*   
 
-    var $formId = ""; //""
-    var $formWidth = "90%"; //"90%"
     
     var $usePlaceholders = false; //false
     var $useReset = false; //false
