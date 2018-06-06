@@ -730,6 +730,10 @@ class form{
                 {
                     echo("<img src='error.svg' alt='Error.svg' height='24' width='24' style='margin:auto;' title='Method was not set to POST or GET.'>");
                 }
+                else
+                {
+                    echo("<img src='correct.svg' alt='Correct.svg' height='24' width='24' style='margin:auto;' title='Everything is OK!'>");
+                }
                 echo("</td>");
             echo("</tr>");
         
@@ -751,6 +755,10 @@ class form{
                 if($this->formAction == "")
                 {
                     echo("<img src='warning.svg' alt='Warning.svg' height='24' width='24' style='margin:auto;' title='Action attribute was not set. This might not be a problem if targeting self.'>");
+                }
+                else
+                {
+                    echo("<img src='correct.svg' alt='Correct.svg' height='24' width='24' style='margin:auto;' title='Everything is OK!'>");
                 }
                 echo("</td>");
             echo("</tr>");
