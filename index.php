@@ -795,6 +795,34 @@ class form{
                     echo("<img src='correct.svg' alt='Correct.svg' height='24' width='24' style='margin:auto;' title='Everything is OK!'>");
                 echo("</td>");
             echo("</tr>");
+        
+        
+        
+            echo("<tr>");
+                echo("<td>usePlacehodlers</td>");
+                echo("<td>");
+                    if(is_bool($this->usePlaceholders))
+                    {
+                        echo($this->usePlaceholders ? "true" : "false");
+                    }
+                    else
+                    {
+                        echo($this->usePlaceholders);
+                    }
+                echo("</td>");
+                echo("<td>Boolean specifying if you want to use placeholders or not.</td>");
+                echo("<td>false</td>");
+                echo("<td>");
+                if(($this->usePlaceholders != true) and ($this->usePlaceholders != false))
+                {
+                    echo("<img src='error.svg' alt='Error.svg' height='24' width='24' style='margin:auto;' title='".$this->usePlaceholders." is not a boolean value!'>");
+                }
+                else
+                {
+                    echo("<img src='correct.svg' alt='Correct.svg' height='24' width='24' style='margin:auto;' title='Everything is OK!'>");
+                }
+                echo("</td>");
+            echo("</tr>");
      /*   
 
     
