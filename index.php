@@ -823,11 +823,37 @@ class form{
                 }
                 echo("</td>");
             echo("</tr>");
+        
+        
+        
+            echo("<tr>");
+                echo("<td>useReset</td>");
+                echo("<td>");
+                    if(is_bool($this->useReset))
+                    {
+                        echo($this->useReset ? "true" : "false");
+                    }
+                    else
+                    {
+                        echo($this->useReset);
+                    }
+                echo("</td>");
+                echo("<td>Boolean specifying if you want to use reset button or not. Requires a formId to be set.</td>");
+                echo("<td>false</td>");
+                echo("<td>");
+                if(($this->useReset != true) and ($this->useReset != false))
+                {
+                    echo("<img src='error.svg' alt='Error.svg' height='24' width='24' style='margin:auto;' title='".$this->useReset." is not a boolean value!'>");
+                }
+                else
+                {
+                    echo("<img src='correct.svg' alt='Correct.svg' height='24' width='24' style='margin:auto;' title='Everything is OK!'>");
+                }
+                echo("</td>");
+            echo("</tr>");
      /*   
 
     
-    var $usePlaceholders = false; //false
-    var $useReset = false; //false
     var $useCustomColors = false; //false
     
     var $submitValue = "Submit"; //"Submit"
