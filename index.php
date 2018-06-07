@@ -901,6 +901,24 @@ class form{
         
         
         
+             echo("<tr>");
+                echo("<td>resetValue</td>");
+                echo("<td>".$this->resetValue."</td>");
+                echo("<td>Text inside reset button.</td>");
+                echo("<td>Reset</td>");
+                echo("<td>");
+                    if($this->resetValue=="Reset")
+                    {
+                        echo("<img src='warning.svg' alt='Warning.svg' height='24' width='24' style='margin:auto;' title='Reset value was not changed.'");
+                    }
+                    else
+                    {
+                        echo("<img src='correct.svg' alt='Correct.svg' height='24' width='24' style='margin:auto;' title='Everything is OK!'>");
+                    }
+                echo("</td>");
+            echo("</tr>");
+        
+        
             
      /*   
 
