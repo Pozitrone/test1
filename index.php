@@ -918,16 +918,30 @@ class form{
                 echo("</td>");
             echo("</tr>");
         
+            
+            
+             echo("<tr>");
+                echo("<td>inputAmount</td>");
+                echo("<td>".$this->inputAmount."</td>");
+                echo("<td>Amount of all inputs together.</td>");
+                echo("<td>1</td>");
+                echo("<td>");
+                    if(!is_numeric($this->inputAmount))
+                    {
+                        echo("<img src='error.svg' alt='Error.svg' height='24' width='24' style='margin:auto;' title='Value ".$this->inputAmount." is not numeric.'");
+                    }
+                    else
+                    {
+                        echo("<img src='correct.svg' alt='Correct.svg' height='24' width='24' style='margin:auto;' title='Everything is OK!'>");
+                    }
+                echo("</td>");
+            echo("</tr>");
+        
         
             
      /*   
 
-    
-    
-    var $submitValue = "Submit"; //"Submit"
-    var $resetValue = "Reset"; //"Reset"
-    
-    var $inputAmount = 1; //1
+
     var $inputTypes = [""]; //[""]
         var $inputTypeDefault = "text"; //text
     var $inputNames = [""]; //[""]
