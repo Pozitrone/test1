@@ -879,6 +879,29 @@ class form{
                 }
                 echo("</td>");
             echo("</tr>");
+            
+        
+        
+            echo("<tr>");
+                echo("<td>submitValue</td>");
+                echo("<td>".$this->submitValue."</td>");
+                echo("<td>Text inside submit button.</td>");
+                echo("<td>Submit</td>");
+                echo("<td>");
+                    if($this->submitValue=="Submit")
+                    {
+                        echo("<img src='warning.svg' alt='Warning.svg' height='24' width='24' style='margin:auto;' title='Submit value was not changed.'");
+                    }
+                    else
+                    {
+                        echo("<img src='correct.svg' alt='Correct.svg' height='24' width='24' style='margin:auto;' title='Everything is OK!'>");
+                    }
+                echo("</td>");
+            echo("</tr>");
+        
+        
+        
+            
      /*   
 
     
