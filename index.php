@@ -941,7 +941,16 @@ class form{
         
             echo("<tr>");
                 echo("<td>inputTypes</td>");
-                echo("<td>".$this->inputTypes."</td>");
+                echo("<td>");
+                    if(!is_array($this->inputTypes))
+                    {
+                        echo($this->inputTypes);
+                    }
+                    else
+                    {
+                        print_r($this->inputTypes);
+                    }
+                echo("</td>");
                 echo("<td>Array that is to be filled with input types.</td>");
                 echo("<td>".$this->inputTypeDefault."</td>");
                 echo("<td>");
