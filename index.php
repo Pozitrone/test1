@@ -969,7 +969,7 @@ class form{
         
             echo("<tr>");
                 echo("<td>inputTypeDefault</td>");
-                echo("<td>".$this->inputTypeDefault"</td>");
+                echo("<td>".$this->inputTypeDefault."</td>");
                 echo("<td>Default value for an input field.</td>");
                 echo("<td>text</td>");
                 echo("<td>");
