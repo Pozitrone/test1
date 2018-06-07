@@ -938,6 +938,24 @@ class form{
             echo("</tr>");
         
         
+        
+            echo("<tr>");
+                echo("<td>inputTypes</td>");
+                echo("<td>".$this->inputTypes."</td>");
+                echo("<td>Array that is to be filled with input types.</td>");
+                echo("<td>".$this->inputTypeDefault."</td>");
+                echo("<td>");
+                if(!is_array($this->inputTypes))
+                {
+                    echo("<img src='error.svg' alt='Error.svg' height='24' width='24' style='margin:auto;' title='This is not an array.'>");  
+                }
+                else
+                {
+                    echo("<img src='correct.svg' alt='Correct.svg' height='24' width='24' style='margin:auto;' title='Everything is OK!'>");
+                }  
+                echo("</td>");
+            echo("</tr>");
+        
             
      /*   
 
