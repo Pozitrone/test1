@@ -952,7 +952,7 @@ class form{
                     }
                 echo("</td>");
                 echo("<td>Array that is to be filled with input types.</td>");
-                echo("<td>".$this->inputTypeDefault."</td>");
+                echo("<td><em>empty</em></td>");
                 echo("<td>");
                 if(!is_array($this->inputTypes))
                 {
@@ -978,12 +978,33 @@ class form{
             echo("</tr>");
         
             
+            echo("<tr>");
+                echo("<td>inputNames</td>");
+                echo("<td>");
+                    if(!is_array($this->inputNames))
+                    {
+                        echo($this->inputNames);
+                    }
+                    else
+                    {
+                        print_r($this->inputNames);
+                    }
+                echo("</td>");
+                echo("<td>Array that is to be filled with input types.</td>");
+                echo("<td><em>empty</em></td>");
+                echo("<td>");
+                if(!is_array($this->inputNames))
+                {
+                    echo("<img src='error.svg' alt='Error.svg' height='24' width='24' style='margin:auto;' title='This is not an array.'>");  
+                }
+                else
+                {
+                    echo("<img src='correct.svg' alt='Correct.svg' height='24' width='24' style='margin:auto;' title='Everything is OK!'>");
+                }  
+                echo("</td>");
+            echo("</tr>");
      /*   
 
-
-    var $inputTypes = [""]; //[""]
-        var $inputTypeDefault = "text"; //text
-    var $inputNames = [""]; //[""]
     var $inputLabels = [""]; //[""]
     var $inputPlaceholders = [""]; //[""]
     var $inputValues = [""]; //[""]
