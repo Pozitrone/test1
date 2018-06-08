@@ -1003,9 +1003,35 @@ class form{
                 }  
                 echo("</td>");
             echo("</tr>");
-     /*   
+        
 
-    var $inputLabels = [""]; //[""]
+                    
+            echo("<tr>");
+                echo("<td>inputLabels</td>");
+                echo("<td>");
+                    if(!is_array($this->inputLabels))
+                    {
+                        echo($this->inputLabels);
+                    }
+                    else
+                    {
+                        print_r($this->inputLabels);
+                    }
+                echo("</td>");
+                echo("<td>Array that is to be filled with input types.</td>");
+                echo("<td><em>empty</em></td>");
+                echo("<td>");
+                if(!is_array($this->inputLabels))
+                {
+                    echo("<img src='error.svg' alt='Error.svg' height='24' width='24' style='margin:auto;' title='This is not an array.'>");  
+                }
+                else
+                {
+                    echo("<img src='correct.svg' alt='Correct.svg' height='24' width='24' style='margin:auto;' title='Everything is OK!'>");
+                }  
+                echo("</td>");
+            echo("</tr>"); 
+     /*   
     var $inputPlaceholders = [""]; //[""]
     var $inputValues = [""]; //[""]
     var $inputsRequired = [false]; //[false]
