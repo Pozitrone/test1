@@ -1078,7 +1078,7 @@ class form{
                         print_r($this->inputValues);
                     }
                 echo("</td>");
-                echo("<td>Array of inputValues. Text in the input fields, does not disappear when clicked on.</td>");
+                echo("<td>Array of input values. Text in the input fields, does not disappear when clicked on.</td>");
                 echo("<td><em>empty</em></td>");
                 echo("<td>");
                 if(!is_array($this->inputValues))
@@ -1090,7 +1090,47 @@ class form{
                     echo("<img src='correct.svg' alt='Correct.svg' height='24' width='24' style='margin:auto;' title='Everything is OK!'>");
                 }  
                 echo("</td>");
-            echo("</tr>"); 
+            echo("</tr>");
+        
+        
+            
+            echo("<tr>");
+                echo("<td>inputsRequired</td>");
+                echo("<td>");
+                    if(!is_array($this->inputsRequired))
+                    {
+                        echo($this->inputsRequired);
+                    }
+                    else
+                    {
+                        echo("Array ( ");
+                        for($i=0;$i<count($this->inputsRequired);$i++)
+                        {
+                            if($this->inputsRequired[$i]==false)
+                            {
+                                echo("[".$i."] => false ");
+                            }
+                            else
+                            {
+                            echo("[".$i."] => ".$this->inputsRequired[$i]." ");
+                            }
+                        }
+                        echo(")");
+                    }
+                echo("</td>");
+                echo("<td>Array of inputValues. Text in the input fields, does not disappear when clicked on.</td>");
+                echo("<td>false</td>");
+                echo("<td>");
+                if(!is_array($this->inputsRequired))
+                {
+                    echo("<img src='error.svg' alt='Error.svg' height='24' width='24' style='margin:auto;' title='This is not an array.'>");  
+                }
+                else
+                {
+                    echo("<img src='correct.svg' alt='Correct.svg' height='24' width='24' style='margin:auto;' title='Everything is OK!'>");
+                }  
+                echo("</td>");
+            echo("</tr>");
         
      /*   
     var $inputsRequired = [false]; //[false]
