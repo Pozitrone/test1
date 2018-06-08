@@ -990,7 +990,7 @@ class form{
                         print_r($this->inputNames);
                     }
                 echo("</td>");
-                echo("<td>Array that is to be filled with input types.</td>");
+                echo("<td>Array filled with names for all input elements. Required for targeting.</td>");
                 echo("<td><em>empty</em></td>");
                 echo("<td>");
                 if(!is_array($this->inputNames))
@@ -1018,7 +1018,7 @@ class form{
                         print_r($this->inputLabels);
                     }
                 echo("</td>");
-                echo("<td>Array that is to be filled with input types.</td>");
+                echo("<td>Array of labels that will show above the input field.</td>");
                 echo("<td><em>empty</em></td>");
                 echo("<td>");
                 if(!is_array($this->inputLabels))
@@ -1031,8 +1031,39 @@ class form{
                 }  
                 echo("</td>");
             echo("</tr>"); 
+        
+        
+        
+            echo("<tr>");
+                echo("<td>inputPlaceholders</td>");
+                echo("<td>");
+                    if(!is_array($this->inputPlaceholders))
+                    {
+                        echo($this->inputPlaceholders);
+                    }
+                    else
+                    {
+                        print_r($this->inputPlaceholders);
+                    }
+                echo("</td>");
+                echo("<td>Array of inputPlaceholders. Text in the input fields. When they are not filled.</td>");
+                echo("<td><em>empty</em></td>");
+                echo("<td>");
+                if(!is_array($this->inputPlaceholders))
+                {
+                    echo("<img src='error.svg' alt='Error.svg' height='24' width='24' style='margin:auto;' title='This is not an array.'>");  
+                }
+                else if($this->usePlaceholders==false)
+                {
+                    echo("<img src='warning.svg' alt='Warning.svg' height='24' width='24' style='margin:auto;' title='Attribute usePlaceholders is set to false.'>");
+                }
+                else
+                {
+                    echo("<img src='correct.svg' alt='Correct.svg' height='24' width='24' style='margin:auto;' title='Everything is OK!'>");
+                }  
+                echo("</td>");
+            echo("</tr>"); 
      /*   
-    var $inputPlaceholders = [""]; //[""]
     var $inputValues = [""]; //[""]
     var $inputsRequired = [false]; //[false]
     var $inputsReadOnly = [false]; //[false]
