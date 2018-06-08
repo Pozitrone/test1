@@ -1063,8 +1063,36 @@ class form{
                 }  
                 echo("</td>");
             echo("</tr>"); 
+        
+        
+        
+            echo("<tr>");
+                echo("<td>inputValues</td>");
+                echo("<td>");
+                    if(!is_array($this->inputValues))
+                    {
+                        echo($this->inputValues);
+                    }
+                    else
+                    {
+                        print_r($this->inputValues);
+                    }
+                echo("</td>");
+                echo("<td>Array of inputValues. Text in the input fields, does not disappear when clicked on.</td>");
+                echo("<td><em>empty</em></td>");
+                echo("<td>");
+                if(!is_array($this->inputValues))
+                {
+                    echo("<img src='error.svg' alt='Error.svg' height='24' width='24' style='margin:auto;' title='This is not an array.'>");  
+                }
+                else
+                {
+                    echo("<img src='correct.svg' alt='Correct.svg' height='24' width='24' style='margin:auto;' title='Everything is OK!'>");
+                }  
+                echo("</td>");
+            echo("</tr>"); 
+        
      /*   
-    var $inputValues = [""]; //[""]
     var $inputsRequired = [false]; //[false]
     var $inputsReadOnly = [false]; //[false]
     
