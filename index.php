@@ -1118,10 +1118,50 @@ class form{
                         echo(")");
                     }
                 echo("</td>");
-                echo("<td>Array of inputValues. Text in the input fields, does not disappear when clicked on.</td>");
+                echo("<td>Array of booleans. Defines if inputs are required or not.</td>");
                 echo("<td>false</td>");
                 echo("<td>");
                 if(!is_array($this->inputsRequired))
+                {
+                    echo("<img src='error.svg' alt='Error.svg' height='24' width='24' style='margin:auto;' title='This is not an array.'>");  
+                }
+                else
+                {
+                    echo("<img src='correct.svg' alt='Correct.svg' height='24' width='24' style='margin:auto;' title='Everything is OK!'>");
+                }  
+                echo("</td>");
+            echo("</tr>");
+        
+        
+            
+            echo("<tr>");
+                echo("<td>inputsReadOnly</td>");
+                echo("<td>");
+                    if(!is_array($this->inputsReadOnly))
+                    {
+                        echo($this->inputsReadOnly);
+                    }
+                    else
+                    {
+                        echo("Array ( ");
+                        for($i=0;$i<count($this->inputsReadOnly);$i++)
+                        {
+                            if($this->inputsReadOnly[$i]==false)
+                            {
+                                echo("[".$i."] => false ");
+                            }
+                            else
+                            {
+                            echo("[".$i."] => ".$this->inputsReadOnly[$i]." ");
+                            }
+                        }
+                        echo(")");
+                    }
+                echo("</td>");
+                echo("<td>Array of booleans. Defines if inputs are read only or not.</td>");
+                echo("<td>false</td>");
+                echo("<td>");
+                if(!is_array($this->inputsReadOnly))
                 {
                     echo("<img src='error.svg' alt='Error.svg' height='24' width='24' style='margin:auto;' title='This is not an array.'>");  
                 }
