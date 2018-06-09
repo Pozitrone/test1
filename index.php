@@ -1172,11 +1172,35 @@ class form{
                 echo("</td>");
             echo("</tr>");
         
+        
+            
+            echo("<tr>");
+                echo("<td>setFieldsets</td>");
+                echo("<td>");
+                    if(!is_array($this->setFieldsets))
+                    {
+                        echo($this->setFieldsets);
+                    }
+                    else
+                    {
+                        print_r($this->setFieldsets);
+                    }
+                echo("</td>");
+                echo("<td>Array of settings for fieldsets. NameOfFieldsets(beginning,end).</td>");
+                echo("<td><em>empty</em></td>");
+                echo("<td>");
+                if(!is_array($this->setFieldsets))
+                {
+                    echo("<img src='error.svg' alt='Error.svg' height='24' width='24' style='margin:auto;' title='This is not an array.'>");  
+                }
+                else
+                {
+                    echo("<img src='correct.svg' alt='Correct.svg' height='24' width='24' style='margin:auto;' title='Everything is OK!'>");
+                }  
+                echo("</td>");
+            echo("</tr>");
+        
      /*   
-    var $inputsRequired = [false]; //[false]
-    var $inputsReadOnly = [false]; //[false]
-    
-    var $setFieldsets = [""]; //[""]
     
     var $useCustomCSS = false; //false
     var $cssPath = "";
