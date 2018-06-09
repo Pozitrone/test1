@@ -1183,7 +1183,19 @@ class form{
                     }
                     else
                     {
-                        print_r($this->setFieldsets);
+                        echo("Array ( ");
+                        for($i=0;$i<count($this->setFieldsets);$i++)
+                        {
+                            if($this->setFieldsets[$i]=="")
+                            {
+                                echo("[".$i."] => <em>empty</em> ");
+                            }
+                            else
+                            {
+                            echo("[".$i."] => ".$this->setFieldsets[$i]." ");
+                            }
+                        }
+                        echo(")");
                     }
                 echo("</td>");
                 echo("<td>Array of settings for fieldsets. NameOfFieldsets(beginning,end).</td>");
