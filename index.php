@@ -1282,8 +1282,28 @@ class form{
                 echo("</td>");
             echo("</tr>");
         
+        
+        
+            echo("<tr>");
+                echo("<td>preset</td>");
+                echo("<td>");
+                    echo($this->preset);
+                echo("</td>");
+                echo("<td>Style preset for the form.</td>");
+                echo("<td>Default</td>");
+                echo("<td>");
+                if(strtolower($this->preset != "default") and strtolower($this->preset != "smooth") and strtolower($this->preset != "smoothNight") and strtolower($this->preset != "predator"))
+                {
+                    echo("<img src='error.svg' alt='Error.svg' height='24' width='24' style='margin:auto;' title='This preset does not exist.'>");
+                }
+                else
+                {
+                    echo("<img src='correct.svg' alt='Correct.svg' height='24' width='24' style='margin:auto;' title='Everything is OK!'>");
+                }
+                echo("</td>");
+            echo("</tr>");
+        
      /*   
-    var $preset = "Default"; //"Default"
     
     var $colorFormBg = "#fff"; //"#fff"
     var $colorFont = "#000"; //"#000"
