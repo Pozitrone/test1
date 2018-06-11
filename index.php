@@ -1344,7 +1344,7 @@ class form{
                 echo("<td style='background-color:".$this->colorFont.";'>");
                     echo("<span style='background-color:#fff; padding:0 16;'>".$this->colorFont."</span>");
                 echo("</td>");
-                echo("<td>Custom color setting for the background of the form.</td>");
+                echo("<td>Custom color setting for the font family of the form.</td>");
                 echo("<td style='background-color:#000;'>");
                     echo("<span style='background-color:#fff; padding:0 16;'>#000</span>");
                 echo("</td>");
@@ -1366,13 +1366,12 @@ class form{
         
         
         
-        
             echo("<tr>");
                 echo("<td>colorBorders</td>");
                 echo("<td style='background-color:".$this->colorBorders.";'>");
                     echo("<span style='background-color:#fff; padding:0 16;'>".$this->colorBorders."</span>");
                 echo("</td>");
-                echo("<td>Custom color setting for the background of the form.</td>");
+                echo("<td>Custom color setting for the color of all of the forms borders.</td>");
                 echo("<td style='background-color:#000;'>");
                     echo("<span style='background-color:#fff; padding:0 16;'>#000</span>");
                 echo("</td>");
@@ -1393,11 +1392,36 @@ class form{
             echo("</tr>");
         
         
+        
+            echo("<tr>");
+                echo("<td>colorInputBg</td>");
+                echo("<td style='background-color:".$this->colorInputBg.";'>");
+                    echo("<span style='background-color:#fff; padding:0 16;'>".$this->colorInputBg."</span>");
+                echo("</td>");
+                echo("<td>Custom color setting for the background of inputs in the form.</td>");
+                echo("<td style='background-color:#fff;'>");
+                    echo("<span style='background-color:#fff; padding:0 16;'>#fff</span>");
+                echo("</td>");
+                echo("<td>");
+                if(strpos($this->colorInputBg,"#")===false)
+                {
+                    echo("<img src='error.svg' alt='Error.svg' height='24' width='24' style='margin:auto;' title='This is not a color in hexadecimal.'>");
+                }
+                else if($this->useCustomColors == false)
+                {
+                    echo("<img src='warning.svg' alt='Warning.svg' height='24' width='24' style='margin:auto;' title='useCustomColors is set to false.'>");
+                }
+                else
+                {
+                    echo("<img src='correct.svg' alt='Correct.svg' height='24' width='24' style='margin:auto;' title='Everything is OK!'>");
+                }
+                echo("</td>");
+            echo("</tr>");
+        
             
         
      /*   
     
-    var $colorInputBg = "#fff"; //"#fff"
     var $colorLabelFont = "#000"; //"#000"  */  
         
         echo("<tbody>");
