@@ -1261,8 +1261,28 @@ class form{
                 echo("</td>");
             echo("</tr>");
         
+        
+        
+            echo("<tr>");
+                echo("<td>fontFamily</td>");
+                echo("<td>");
+                    echo($this->fontFamily);
+                echo("</td>");
+                echo("<td>Font family to be used in the form.</td>");
+                echo("<td>sans-serif</td>");
+                echo("<td>");
+                if($this->fontFamily == "")
+                {
+                    echo("<img src='error.svg' alt='Error.svg' height='24' width='24' style='margin:auto;' title='fontFamily is empty.'>");
+                }
+                else
+                {
+                    echo("<img src='correct.svg' alt='Correct.svg' height='24' width='24' style='margin:auto;' title='Everything is OK!'>");
+                }
+                echo("</td>");
+            echo("</tr>");
+        
      /*   
-    var $fontFamily = "sans-serif"; //"sans-serif"
     var $preset = "Default"; //"Default"
     
     var $colorFormBg = "#fff"; //"#fff"
