@@ -1245,7 +1245,14 @@ class form{
              echo("<tr>");
                 echo("<td>cssPath</td>");
                 echo("<td>");
-                    echo($this->cssPath);
+                    if($this->cssPath=="")
+                    {
+                        echo("<em>empty</em>");
+                    }
+                    else
+                    {
+                       echo($this->cssPath); 
+                    }                   
                 echo("</td>");
                 echo("<td>Path when using custom css.</td>");
                 echo("<td><em>empty</em></td>");
