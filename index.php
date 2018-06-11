@@ -1212,9 +1212,35 @@ class form{
                 echo("</td>");
             echo("</tr>");
         
+        
+        
+            echo("<tr>");
+                echo("<td>useCustomCSS</td>");
+                echo("<td>");
+                    if(is_bool($this->useCustomCSS))
+                    {
+                        echo($this->useCustomCSS ? "true" : "false");
+                    }
+                    else
+                    {
+                        echo($this->useCustomCSS);
+                    }
+                echo("</td>");
+                echo("<td>Boolean specifying if you want to use custom css or not.</td>");
+                echo("<td>false</td>");
+                echo("<td>");
+                if(!is_bool($this->useCustomCSS != true))
+                {
+                    echo("<img src='error.svg' alt='Error.svg' height='24' width='24' style='margin:auto;' title='".$this->useCustomCSS." is not a boolean value!'>");
+                }
+                else
+                {
+                    echo("<img src='correct.svg' alt='Correct.svg' height='24' width='24' style='margin:auto;' title='Everything is OK!'>");
+                }
+                echo("</td>");
+            echo("</tr>");
+        
      /*   
-    
-    var $useCustomCSS = false; //false
     var $cssPath = "";
     var $fontFamily = "sans-serif"; //"sans-serif"
     var $preset = "Default"; //"Default"
