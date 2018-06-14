@@ -58,3 +58,13 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 /* END OF W3SCHOOLS SWITCH */
+
+body
+{
+    margin:2.5% 20%;
+}
+
+label
+{
+    margin:15px;
+}
