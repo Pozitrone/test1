@@ -29,14 +29,43 @@
                     <option>em</option>
                     <option>%</option>
                 </select>
-
-
+                
+            </fieldset>
+            
+            <fieldset>
+                <label for="switchUsePlaceholders">use placeholders</label>
+                <label class="switch">
+                    <input type="checkbox" name="switchUsePlaceholders">
+                    <span class="slider round"></span>
+                </label>
+                
+                <label for="switchUseCustomCSS">use custom css</label>
+                <label class="switch">
+                    <input type="checkbox" name="switchUseCustomCSS">
+                    <span class="slider round"></span>
+                </label>
+                
+                <label for="switchUseReset">use reset</label>
+                <label class="switch">
+                    <input type="checkbox" name="switchUseReset">
+                    <span class="slider round"></span>
+                </label>
+                
+                <label for="switchUseCustomColors">use custom colors</label>
+                <label class="switch">
+                    <input type="checkbox" name="switchUseCustomColors">
+                    <span class="slider round"></span>
+                </label>
+                
+                <label for="switchUseFieldsets">use fieldsets</label>
+                <label class="switch">
+                    <input type="checkbox" name="switchUseFieldsets">
+                    <span class="slider round"></span>
+                </label>
+            
             </fieldset>
 
-            <label class="switch">
-                <input type="checkbox" name="switchUsePlaceholders">
-                <span class="slider round"></span>
-            </label>
+            
         </form>
         
     </body>
