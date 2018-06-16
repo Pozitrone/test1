@@ -98,7 +98,7 @@ class form{
         }
         else
         {
-            $this->formMethod = "POST";
+            $this->formMethod = "post";
         }
     }
     
@@ -622,7 +622,13 @@ class form{
     }
    
     function con_form()
-    {   echo('<!doctype html>
+    {  
+        if((strtolower($this->formMethod)!="post") and (strtolower($this->formMethod)!="get"))
+        {
+            $this->formMethod="post";
+        }
+        
+        echo('<!doctype html>
         <html>
             <head>
                 <title>Vexx Forms</title>
@@ -726,7 +732,7 @@ class form{
                 echo("<td>Method to be used in the form. Accepts either GET or POST.</td>");
                 echo("<td>POST</td>");
                 echo("<td>");
-                if(strtolower($this->formMethod != "post") and strtolower($this->formMethod != "get"))
+                if((strtolower($this->formMethod) != "post") and (strtolower($this->formMethod != "get")))
                 {
                     echo("<img src='error.svg' alt='Error.svg' height='24' width='24' style='margin:auto;' title='Method was not set to POST or GET.'>");
                 }
@@ -1524,6 +1530,7 @@ $formc->resetValue = "Resetovat";
 $formc->formId="predator";
 $formc->setFieldsets = ["O mě(0,2)","Adresa(3,6)"];
 $formc->con_form();
+$formc->con_status();
 
 
 echo("<br><br><br>");
