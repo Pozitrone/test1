@@ -14,9 +14,7 @@
                 document.getElementById("inputs").innerHTML="";
                 for (i=0; i<parseInt(document.getElementById("inputAmount").value); i++)
                     {
-                        alert(i);
-                        document.getElementById("inputs").appendChild(document.createTextNode
-                        (
+                        document.getElementById("inputs").insertAdjacentHTML("beforeend", 
                             "<label for='inputType"+i+"'>Input type</label>"+
                             "<select name='selectInputType"+i+"'>"+
                                 "<option>text</option>"+
@@ -51,10 +49,12 @@
                                 "<label class='switch'>"+
                                 "<input type='checkbox' name='switchReadonly"+i+"'>"+
                             "<span class='slider round'></span>"+
-                            "</label>"
+                            "</label>"+
+                            "<br><hr>"                                                 
+                                                                             
 
 
-                        ));
+                        );
                     }
                         
                 }
@@ -182,6 +182,8 @@
                 <input type="color" name="colorLabelFont">
             
             </fieldset>
+            
+            <input type="submit" name="submit" value="Submit" style="margin:10px">
 
             
         </form>
