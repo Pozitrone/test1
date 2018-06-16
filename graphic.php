@@ -5,6 +5,59 @@
         <meta lang="en">
         <meta charset="utf-8">
         <link href="graphic.css" rel="stylesheet" type="text/css"/>
+        
+        <script>
+            
+            function loadInputs()
+            {
+                var i;
+                for (i=0; i<= parseInt(document.getElementById("inputAmount").innerHTML); i++)
+                    {
+                        document.getElementById("inputs").innerHTML.concat
+                        (
+                            "<label for='inputType",i,"'>Input type</label>",
+                            "<select name='selectInputType",i,"'>",
+                                "<option>text</option>",
+                                "<option>number</option>",
+                                "<option>password</option>",
+                                "<option>date</option>",
+                                "<option>radio</option>",
+                                "<option>checkbox</option>",
+                                "<option>color</option>",
+                                "<option>email</option>",
+                            "</select>",
+
+                            "<label for='inputName",i,"'>Input name</label>",
+                            "<input type='text' name='inputName",i,"'>",
+
+                            "<label for='inputLabel",i,"'>Input label</label>",
+                            "<input type='text' name='inputLabel",i,"'>",
+
+                            "<label for='inputPlaceholder",i,"'>Input placeholder</label>",
+                            "<input type='text' name='inputPlaceholder",i,"'>", 
+
+                            "<label for='inputValue",i,"'>Input value</label>",
+                            "<input type='text' name='inputValue",i,"'>",
+
+                            "<label for='switchRequired",i,"'>required</label>",
+                                "<label class='switch'>",
+                                "<input type='checkbox' name='switchRequired",i,"'>",
+                            "<span class='slider round'></span>",
+                            "</label>",
+
+                            "<label for='switchReadonly",i,"'>readonly</label>",
+                                "<label class='switch'>",
+                                "<input type='checkbox' name='switchReadonly",i,"'>",
+                            "<span class='slider round'></span>",
+                            "</label>"
+
+
+                        );
+                    }
+                        
+                }
+            
+        </script>    
     </head>
     <body>
         <form>
@@ -85,7 +138,7 @@
                 <input type="text" name="textResetValue">
             
                 <label for="numberInputAmount">input amount</label>
-                <input type="number" name="numberInputAmount">
+                <input type="number" name="numberInputAmount" id="inputAmount">
             
                 <label for="textCssPath">css path</label>
                 <input type="text" name="textCssPath">
