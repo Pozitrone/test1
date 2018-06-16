@@ -102,6 +102,31 @@
                 <input type="text" name="textFontFamily">
 
             </fieldset>
+            
+            <fieldset id="inputs">
+            
+                
+            
+            </fieldset>
+            
+            <fieldset>
+            
+                <label for="colorFormBg">color form bg</label>
+                <input type="color" name="colorFormBg">
+                
+                <label for="colorFont">color font</label>
+                <input type="color" name="colorFont">
+                
+                <label for="colorBorders">color borders</label>
+                <input type="color" name="colorBorders">
+                
+                <label for="colorInputBg">color input bg</label>
+                <input type="color" name="colorInputBg">
+                
+                <label for="colorLabelFont">color label font</label>
+                <input type="color" name="colorLabelFont">
+            
+            </fieldset>
 
             
         </form>
