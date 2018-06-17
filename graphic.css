@@ -68,3 +68,18 @@ label
 {
     margin:15px;
 }
+
+.jsPlaceholders
+{
+    display:none;
+}
+
+.jsCss
+{
+    display:none;
+}
+
+.jsPreset
+{
+    display:block;
+}

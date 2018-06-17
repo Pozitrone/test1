@@ -33,8 +33,8 @@
                             "<label for='inputLabel"+i+"'>Input label</label>"+
                             "<input type='text' name='inputLabel"+i+"'>"+
 
-                            "<label for='inputPlaceholder"+i+"'>Input placeholder</label>"+
-                            "<input type='text' name='inputPlaceholder"+i+"'>"+ 
+                            "<label for='inputPlaceholder"+i+"' class='jsPlaceholders'>Input placeholder</label>"+
+                            "<input type='text' name='inputPlaceholder"+i+"' class='jsPlaceholders'>"+ 
 
                             "<label for='inputValue"+i+"'>Input value</label>"+
                             "<input type='text' name='inputValue"+i+"'>"+
@@ -59,18 +59,63 @@
                         
                 }
             
-            function usePlaceholders
+            function usePlaceholders()
             {
-                
+                if(document.getElementById("switchUsePlaceholders").checked)
+                    {
+                        var elems = document.getElementsByClassName("jsPlaceholders");
+                        for (var i=0;i<elems.length;i++)
+                        {
+                            elems[i].style.display = 'block';
+                        }
+                    }
+                else
+                    {
+                        var elems = document.getElementsByClassName("jsPlaceholders");
+                        for (var i=0;i<elems.length;i++)
+                        {
+                            elems[i].style.display = 'none';
+                        }
+                    }
             }
             
-            function useCustomCss
+            function useCustomCss()
+            {
+                if(document.getElementById("switchUseCustomCss").checked)
+                    {
+                        var varCss = document.getElementsByClassName("jsCss");
+                        for (var i=0;i<varCss.length;i++)
+                        {
+                            varCss[i].style.display = 'block';
+                        }
+                        var varPreset = document.getElementsByClassName("jsPreset");
+                        for (var j=0;j<varPreset.length;j++)
+                        {
+                            varPreset[j].style.display = 'none';
+                        }
+                        
+                    }
+                else
+                    {
+                        var varCss = document.getElementsByClassName("jsCss");
+                        for (var i=0;i<varCss.length;i++)
+                        {
+                            varCss[i].style.display = 'none';
+                        }
+                        var varPreset = document.getElementsByClassName("jsPreset");
+                        for (var j=0;j<varPreset.length;j++)
+                        {
+                            varPreset[j].style.display = 'block';
+                        }
+                    }
+            }
             
-            function useReset
+            /*
+            function useReset()
             
-            function useCustomColors
+            function useCustomColors()
             
-            function useFieldsets
+            function useFieldsets()*/
         </script>    
     </head>
     <body>
@@ -103,15 +148,15 @@
                 <div>
                     <label for="switchUsePlaceholders">use placeholders</label>
                     <label class="switch">
-                        <input type="checkbox" name="switchUsePlaceholders" id="switchUsePlaceholders">
+                        <input type="checkbox" name="switchUsePlaceholders" id="switchUsePlaceholders" onchange="usePlaceholders()">
                         <span class="slider round"></span>
                     </label>
                 </div>
                 
                 <div>
-                    <label for="switchUseCustomCSS">use custom css</label>
+                    <label for="switchUseCustomCss">use custom css</label>
                     <label class="switch">
-                        <input type="checkbox" name="switchUseCustomCSS" id="switchUseCustomCSS">
+                        <input type="checkbox" name="switchUseCustomCss" id="switchUseCustomCss" onchange="useCustomCss()">
                         <span class="slider round"></span>
                     </label>
                 </div>
@@ -119,7 +164,7 @@
                 <div>
                     <label for="switchUseReset">use reset</label>
                     <label class="switch">
-                        <input type="checkbox" name="switchUseReset" id="switchUseReset">
+                        <input type="checkbox" name="switchUseReset" id="switchUseReset" onchange="useReset">
                         <span class="slider round"></span>
                     </label>
                 </div>
@@ -127,7 +172,7 @@
                 <div>
                     <label for="switchUseCustomColors">use custom colors</label>
                     <label class="switch">
-                        <input type="checkbox" name="switchUseCustomColors" id="switchUseCustomColors">
+                        <input type="checkbox" name="switchUseCustomColors" id="switchUseCustomColors" onchange="useCustomColors">
                         <span class="slider round"></span>
                     </label>
                 </div>
@@ -135,7 +180,7 @@
                 <div>
                     <label for="switchUseFieldsets">use fieldsets</label>
                     <label class="switch">
-                        <input type="checkbox" name="switchUseFieldsets" id="switchUseFieldsets">
+                        <input type="checkbox" name="switchUseFieldsets" id="switchUseFieldsets" onchange="useFieldsets">
                         <span class="slider round"></span>
                     </label>
                 </div>
@@ -148,17 +193,17 @@
                 <label for="textSubmitValue">submit value</label>
                 <input type="text" name="textSubmitValue">
             
-                <label for="textResetValue">reset value</label>
-                <input type="text" name="textResetValue">
+                <label for="textResetValue" class="jsReset">reset value</label>
+                <input type="text" name="textResetValue" class="jsReset">
             
                 <label for="numberInputAmount">input amount</label>
                 <input type="number" name="numberInputAmount" id="inputAmount" onchange="loadInputs()">
             
-                <label for="textCssPath">css path</label>
-                <input type="text" name="textCssPath">
+                <label for="textCssPath" class="jsCss">css path</label>
+                <input type="text" name="textCssPath" class="jsCss">
             
-                <label for="selectPreset">preset</label>
-                <select name="selectPreset">
+                <label class="jsPreset" for="selectPreset">preset</label>
+                <select class="jsPreset" name="selectPreset">
                     <option selected>Default</option>
                     <option>smooth</option>
                     <option>smooth night</option>
