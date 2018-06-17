@@ -59,6 +59,18 @@
                         
                 }
             
+            function usePlaceholders
+            {
+                
+            }
+            
+            function useCustomCss
+            
+            function useReset
+            
+            function useCustomColors
+            
+            function useFieldsets
         </script>    
     </head>
     <body>
@@ -91,7 +103,7 @@
                 <div>
                     <label for="switchUsePlaceholders">use placeholders</label>
                     <label class="switch">
-                        <input type="checkbox" name="switchUsePlaceholders">
+                        <input type="checkbox" name="switchUsePlaceholders" id="switchUsePlaceholders">
                         <span class="slider round"></span>
                     </label>
                 </div>
@@ -99,7 +111,7 @@
                 <div>
                     <label for="switchUseCustomCSS">use custom css</label>
                     <label class="switch">
-                        <input type="checkbox" name="switchUseCustomCSS">
+                        <input type="checkbox" name="switchUseCustomCSS" id="switchUseCustomCSS">
                         <span class="slider round"></span>
                     </label>
                 </div>
@@ -107,7 +119,7 @@
                 <div>
                     <label for="switchUseReset">use reset</label>
                     <label class="switch">
-                        <input type="checkbox" name="switchUseReset">
+                        <input type="checkbox" name="switchUseReset" id="switchUseReset">
                         <span class="slider round"></span>
                     </label>
                 </div>
@@ -115,7 +127,7 @@
                 <div>
                     <label for="switchUseCustomColors">use custom colors</label>
                     <label class="switch">
-                        <input type="checkbox" name="switchUseCustomColors">
+                        <input type="checkbox" name="switchUseCustomColors" id="switchUseCustomColors">
                         <span class="slider round"></span>
                     </label>
                 </div>
@@ -123,7 +135,7 @@
                 <div>
                     <label for="switchUseFieldsets">use fieldsets</label>
                     <label class="switch">
-                        <input type="checkbox" name="switchUseFieldsets">
+                        <input type="checkbox" name="switchUseFieldsets" id="switchUseFieldsets">
                         <span class="slider round"></span>
                     </label>
                 </div>
