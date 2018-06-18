@@ -110,9 +110,29 @@
                     }
             }
             
-            /*
-            function useReset()
             
+            function useReset()
+            {
+                if(document.getElementById("switchUseReset").checked)
+                    {
+                        var elems = document.getElementsByClassName("jsReset");
+                        for (var i=0;i<elems.length;i++)
+                        {
+                            elems[i].style.display = 'block';
+                        }
+                    }
+                else
+                    {
+                        var elems = document.getElementsByClassName("jsReset");
+                        for (var i=0;i<elems.length;i++)
+                        {
+                            elems[i].style.display = 'none';
+                        }
+                    }
+            }
+            
+            
+            /*
             function useCustomColors()
             
             function useFieldsets()*/
@@ -164,7 +184,7 @@
                 <div>
                     <label for="switchUseReset">use reset</label>
                     <label class="switch">
-                        <input type="checkbox" name="switchUseReset" id="switchUseReset" onchange="useReset">
+                        <input type="checkbox" name="switchUseReset" id="switchUseReset" onchange="useReset()">
                         <span class="slider round"></span>
                     </label>
                 </div>
@@ -172,7 +192,7 @@
                 <div>
                     <label for="switchUseCustomColors">use custom colors</label>
                     <label class="switch">
-                        <input type="checkbox" name="switchUseCustomColors" id="switchUseCustomColors" onchange="useCustomColors">
+                        <input type="checkbox" name="switchUseCustomColors" id="switchUseCustomColors" onchange="useCustomColors()">
                         <span class="slider round"></span>
                     </label>
                 </div>
@@ -180,7 +200,7 @@
                 <div>
                     <label for="switchUseFieldsets">use fieldsets</label>
                     <label class="switch">
-                        <input type="checkbox" name="switchUseFieldsets" id="switchUseFieldsets" onchange="useFieldsets">
+                        <input type="checkbox" name="switchUseFieldsets" id="switchUseFieldsets" onchange="useFieldsets()">
                         <span class="slider round"></span>
                     </label>
                 </div>
