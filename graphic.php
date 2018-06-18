@@ -132,8 +132,21 @@
             }
             
             
-            /*
+            
             function useCustomColors()
+            {
+                if(document.getElementById("switchUseCustomColors").checked)
+                    {
+                        var elem = document.getElementById("jsCustomColors");
+                        elem.style.display = 'block';
+                    }
+                else
+                    {
+                        var elem = document.getElementById("jsCustomColors");
+                        elem.style.display = 'none';
+                    }
+            }
+            /*
             
             function useFieldsets()*/
         </script>    
@@ -241,7 +254,7 @@
             
             </fieldset>
             
-            <fieldset>
+            <fieldset id="jsCustomColors">
             
                 <label for="colorFormBg">color form bg</label>
                 <input type="color" name="colorFormBg">
