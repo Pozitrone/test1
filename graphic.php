@@ -12,6 +12,7 @@
             {
                 var i=0;
                 document.getElementById("inputs").innerHTML="";
+                document.getElementById("inputs").style.display="block";
                 for (i=0; i<parseInt(document.getElementById("inputAmount").value); i++)
                     {
                         document.getElementById("inputs").insertAdjacentHTML("beforeend", 
