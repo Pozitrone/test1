@@ -12,7 +12,7 @@
             {
                 var i=0;
                 document.getElementById("inputs").innerHTML="";
-                document.getElementById("inputs").style.display="block";
+                document.getElementById("inputs").style.display="inline";
                 for (i=0; i<parseInt(document.getElementById("inputAmount").value); i++)
                     {
                         document.getElementById("inputs").insertAdjacentHTML("beforeend", 
@@ -67,7 +67,7 @@
                         var elems = document.getElementsByClassName("jsPlaceholders");
                         for (var i=0;i<elems.length;i++)
                         {
-                            elems[i].style.display = 'block';
+                            elems[i].style.display = 'inline';
                         }
                     }
                 else
@@ -87,7 +87,7 @@
                         var varCss = document.getElementsByClassName("jsCss");
                         for (var i=0;i<varCss.length;i++)
                         {
-                            varCss[i].style.display = 'block';
+                            varCss[i].style.display = 'inline';
                         }
                         var varPreset = document.getElementsByClassName("jsPreset");
                         for (var j=0;j<varPreset.length;j++)
@@ -106,7 +106,7 @@
                         var varPreset = document.getElementsByClassName("jsPreset");
                         for (var j=0;j<varPreset.length;j++)
                         {
-                            varPreset[j].style.display = 'block';
+                            varPreset[j].style.display = 'inline';
                         }
                     }
             }
@@ -119,7 +119,7 @@
                         var elems = document.getElementsByClassName("jsReset");
                         for (var i=0;i<elems.length;i++)
                         {
-                            elems[i].style.display = 'block';
+                            elems[i].style.display = 'inline';
                         }
                     }
                 else
@@ -139,7 +139,7 @@
                 if(document.getElementById("switchUseCustomColors").checked)
                     {
                         var elem = document.getElementById("jsCustomColors");
-                        elem.style.display = 'block';
+                        elem.style.display = 'inline';
                     }
                 else
                     {
@@ -147,9 +147,39 @@
                         elem.style.display = 'none';
                     }
             }
-            /*
             
-            function useFieldsets()*/
+            
+            function useFieldsets()
+            {
+                if(document.getElementById("switchUseFieldsets").checked)
+                    {
+                        var elem = document.getElementById("fieldsetsFS");
+                        elem.style.display = 'inline';
+                    }
+                else
+                    {
+                        var elem = document.getElementById("fieldsetsFS");
+                        elem.style.display = 'none';
+                    }    
+            }
+            
+            function fsAmount()
+            {
+                document.getElementById("fieldsets").innerHTML="";
+                for (var i=0; i<parseInt(document.getElementById("fieldsetAmount").value); i++)
+                    {
+                        document.getElementById("fieldsets").insertAdjacentHTML("beforeend",
+                        "<hr>" +                                                     
+                        "<label for='fieldsetBeginning"+i+"'>Fieldset Beginning</label>"+
+                        "<input type='number' name='fieldsetBeginning"+i+"'>"+ 
+                                                                                
+                        "<label for='fieldsetEnd"+i+"'>Fieldset End</label>"+
+                        "<input type='number' name='fieldsetEnd"+i+"'>"+  
+                                                                                
+                        "<label for='fieldsetName"+i+"'>Fieldset Name</label>"+
+                        "<input type='text' name='fieldsetName"+i+"'>");   
+                    }
+            }
         </script>    
     </head>
     <body>
@@ -252,6 +282,16 @@
             <fieldset id="inputs">
             
                 
+            
+            </fieldset>
+            
+            <fieldset id="fieldsetsFS">
+                
+                <label for="amountFieldsets">Amount of fieldsets</label>
+                <input type="number" name="amountFieldsets" id="fieldsetAmount" onchange="fsAmount()">
+                <div id="fieldsets">
+                
+                </div>
             
             </fieldset>
             

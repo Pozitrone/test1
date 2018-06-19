@@ -81,7 +81,7 @@ label
 
 .jsPreset
 {
-    display:block;
+    display:inline;
 }
 
 .jsReset
@@ -90,6 +90,16 @@ label
 }
 
 #inputs
+{
+    display:none;
+}
+
+#fieldsetsFS
+{
+    display:none;
+}
+
+#jsCustomColors
 {
     display:none;
 }
