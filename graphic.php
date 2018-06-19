@@ -40,21 +40,27 @@
                             "<label for='inputValue"+i+"'>Input value</label>"+
                             "<input type='text' name='inputValue"+i+"'>"+
 
-                            "<label for='switchRequired"+i+"'>required</label>"+
-                                "<label class='switch'>"+
-                                "<input type='checkbox' name='switchRequired"+i+"'>"+
-                            "<span class='slider round'></span>"+
-                            "</label>"+
-
-                            "<label for='switchReadonly"+i+"'>readonly</label>"+
-                                "<label class='switch'>"+
-                                "<input type='checkbox' name='switchReadonly"+i+"'>"+
-                            "<span class='slider round'></span>"+
-                            "</label>"+
-                            "<br><hr>"                                                 
                                                                              
-
-
+                            "<table>"+
+                            "<tr>"+
+                                "<td><label for='switchRequired"+i+"'>required</label></td>"+
+                                "<td><label for='switchReadonly"+i+"'>readonly</label></td>"+
+                            "</tr>"  +
+                            "<tr>"+
+                                "<td>" +
+                                    "<label class='switch'>"+
+                                        "<input type='checkbox' name='switchRequired"+i+"'>"+
+                                        "<span class='slider round'></span>"+
+                                    "</label>"+                                             
+                                "</td>"+
+                                "<td>" +
+                                    "<label class='switch'>"+
+                                        "<input type='checkbox' name='switchReadonly"+i+"'>"+
+                                        "<span class='slider round'></span>"+
+                                    "</label>"+                                                 
+                                "</td>"  +                                           
+                            "</tr>"+
+                            "</table><hr>"                                                                
                         );
                     }
                         
@@ -209,46 +215,51 @@
             </fieldset>
             
             <fieldset>
-                <div>
-                    <label for="switchUsePlaceholders">use placeholders</label>
-                    <label class="switch">
-                        <input type="checkbox" name="switchUsePlaceholders" id="switchUsePlaceholders" onchange="usePlaceholders()">
-                        <span class="slider round"></span>
-                    </label>
-                </div>
                 
-                <div>
-                    <label for="switchUseCustomCss">use custom css</label>
-                    <label class="switch">
-                        <input type="checkbox" name="switchUseCustomCss" id="switchUseCustomCss" onchange="useCustomCss()">
-                        <span class="slider round"></span>
-                    </label>
-                </div>
-                
-                <div>
-                    <label for="switchUseReset">use reset</label>
-                    <label class="switch">
-                        <input type="checkbox" name="switchUseReset" id="switchUseReset" onchange="useReset()">
-                        <span class="slider round"></span>
-                    </label>
-                </div>
+                <table id="switches">
+                    <tr>
+                        <td><label class="text" for="switchUsePlaceholders">use placeholders</label></td> 
+                        <td><label class="text" for="switchUseCustomCss">use custom css</label></td>    
+                        <td><label class="text" for="switchUseReset">use reset</label></td>    
+                        <td><label class="text" for="switchUseCustomColors">use custom colors</label></td> 
+                        <td><label class="text" for="switchUseFieldsets">use fieldsets</label></td>    
+                    </tr>
                     
-                <div>
-                    <label for="switchUseCustomColors">use custom colors</label>
-                    <label class="switch">
-                        <input type="checkbox" name="switchUseCustomColors" id="switchUseCustomColors" onchange="useCustomColors()">
-                        <span class="slider round"></span>
-                    </label>
-                </div>
+                    <tr>
+                        <td>
+                            <label class="switch">
+                                <input type="checkbox" name="switchUsePlaceholders" id="switchUsePlaceholders" onchange="usePlaceholders()">
+                                <span class="slider round"></span>
+                            </label>
+                        </td>
+                        <td>
+                            <label class="switch">
+                                <input type="checkbox" name="switchUseCustomCss" id="switchUseCustomCss" onchange="useCustomCss()">
+                                <span class="slider round"></span>
+                            </label>
+                        </td>
+                        <td>
+                            <label class="switch">
+                                <input type="checkbox" name="switchUseReset" id="switchUseReset" onchange="useReset()">
+                                <span class="slider round"></span>
+                            </label>
+                        </td>
+                        <td>
+                            <label class="switch">
+                                <input type="checkbox" name="switchUseCustomColors" id="switchUseCustomColors" onchange="useCustomColors()">
+                                <span class="slider round"></span>
+                            </label>
+                        </td>
+                        <td>
+                            <label class="switch">
+                                <input type="checkbox" name="switchUseFieldsets" id="switchUseFieldsets" onchange="useFieldsets()">
+                                <span class="slider round"></span>
+                            </label>
+                        </td>
+                    </tr>
                 
-                <div>
-                    <label for="switchUseFieldsets">use fieldsets</label>
-                    <label class="switch">
-                        <input type="checkbox" name="switchUseFieldsets" id="switchUseFieldsets" onchange="useFieldsets()">
-                        <span class="slider round"></span>
-                    </label>
-                </div>
-            
+                </table>
+                
             </fieldset>
             
             

@@ -103,3 +103,19 @@ label
 {
     display:none;
 }
+
+table#switches
+{
+    border:none;
+    width:100%;
+}
+
+table#switches td
+{
+    width:20%;
+}
+
+fieldset
+{
+    width:100%;   
+}
