@@ -33,10 +33,10 @@ $typez->con_status();
     $inputNames="";
     for($i=0;$i<$inputAmount;$i++)
     {
-        $inputTypes.=$_REQUEST["inputName".$i];
+        $inputNames.=$_REQUEST["inputName".$i];
         if($i<$inputAmount-1)
         {
-            $inputTypes.=",";
+            $inputNames.=",";
         }
     }
 
