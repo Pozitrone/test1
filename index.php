@@ -1456,7 +1456,7 @@ class form{
     
 }
 
-
+/*
 echo("jeden vstup, zadny placeholder, default preset");
 $form = new form;
 $form->inputAmount = 1;
@@ -1559,5 +1559,5 @@ $typez->con_status();
 
 echo('</body>
 </html>');
-    
+   */ 
     ?>

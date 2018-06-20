@@ -16,7 +16,7 @@
                 for (i=0; i<parseInt(document.getElementById("inputAmount").value); i++)
                     {
                         document.getElementById("inputs").insertAdjacentHTML("beforeend", 
-                            "<label for='inputType"+i+"'>Input type</label>"+
+                            "<label for='selectInputType"+i+"'>Input type</label>"+
                             "<select name='selectInputType"+i+"'>"+
                                 "<option>text</option>"+
                                 "<option>number</option>"+
@@ -29,7 +29,7 @@
                             "</select>"+
 
                             "<label for='inputName"+i+"'>Input name</label>"+
-                            "<input type='text' name='inputName"+i+"'>"+
+                            "<input type='text' name='inputName"+i+"' required>"+
 
                             "<label for='inputLabel"+i+"'>Input label</label>"+
                             "<input type='text' name='inputLabel"+i+"'>"+
@@ -189,11 +189,11 @@
         </script>    
     </head>
     <body>
-        <form>
+        <form method="post" action="./generated.php" target="_blank">
             <fieldset>
 
                 <label for="selectFormMethod">form method</label>
-                <select name="selectFormMethod">
+                <select name="selectFormMethod" required>
                     <option>GET</option>
                     <option selected>POST</option>
                 </select>
@@ -202,7 +202,7 @@
                 <input type="text" name="textFormAction">
 
                 <label for="textFormId">form id</label>
-                <input type="text" name="textFormId">
+                <input type="text" name="textFormId" required>
 
                 <label for="numberFormWidth">form width</label>
                 <input type="number" name="numberFormWidth">
@@ -272,7 +272,7 @@
                 <input type="text" name="textResetValue" class="jsReset">
             
                 <label for="numberInputAmount">input amount</label>
-                <input type="number" name="numberInputAmount" id="inputAmount" onchange="loadInputs()">
+                <input type="number" name="numberInputAmount" id="inputAmount" onchange="loadInputs()" required min="1">
             
                 <label for="textCssPath" class="jsCss">css path</label>
                 <input type="text" name="textCssPath" class="jsCss">
@@ -299,7 +299,7 @@
             <fieldset id="fieldsetsFS">
                 
                 <label for="amountFieldsets">Amount of fieldsets</label>
-                <input type="number" name="amountFieldsets" id="fieldsetAmount" onchange="fsAmount()">
+                <input type="number" name="amountFieldsets" id="fieldsetAmount" onchange="fsAmount()" min="1">
                 <div id="fieldsets">
                 
                 </div>
