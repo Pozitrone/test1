@@ -2,7 +2,6 @@
     require("./index.php");
 
     /*  
-    var $formAction = ""; //""
     var $formWidth = "512px"; //"512px"   
     var $usePlaceholders = false; //false
     var $useReset = false; //false
@@ -65,6 +64,13 @@
     }
 
 
+    $formWidth="512px";
+    if(isset($_REQUEST["numberFormWidth"]) and $_REQUEST["numberFormWidth"]!="")
+    {
+        $formWidth=(string)$_REQUEST["numberFormWidth"].$_REQUEST["selectFormWidth"];
+    }
+
+
     
 ?>
 <html>
@@ -80,7 +86,8 @@
                 "\$form->inputTypes = [".$inputTypes."]; ".
                 "\$form->inputNames = [".$inputNames."]; ".
                 "\$form->formMethod = '".$formMethod."'; ".
-                "\$form->formAction = '".$formAction."'; "
+                "\$form->formAction = '".$formAction."'; ".
+                "\$form->formWidth = '".$formWidth."'; "
                 ;
             echo($str);
         ?>
