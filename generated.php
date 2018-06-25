@@ -2,20 +2,29 @@
     require("./index.php");
 
     /*  
-$typez = new form;
-$typez->inputAmount = 10;
-$typez->preset = "smooth";
-$typez->formWidth = "256px";
-$typez->formMethod = "get";
-$typez->inputTypes = ["text","password","select(This,Is,Select)","radio(This,Is,Radio)","textarea","checkbox(These,Are,Checkboxes)","color","date","email","number"];
-$typez->inputNames = ["Text","Password","Select","Radio","textarea","Checkbox","Color","Date","Email","Number"];
-$typez->inputLabels = ["Text","Password","Select","Radio","textarea","Checkbox","Color","Date","Email","Number"];
-$typez->usePlaceholders = false;
-$typez->useReset = false;
-$typez->formId = "typeZ";
-$typez->useCustomColors = true;
-$typez->con_form();
-$typez->con_status();
+    var $formMethod = "POST"; //"POST"
+    var $formAction = ""; //""
+    var $formWidth = "512px"; //"512px"   
+    var $usePlaceholders = false; //false
+    var $useReset = false; //false
+    var $useCustomColors = false; //false    
+    var $submitValue = "Submit"; //"Submit"
+    var $resetValue = "Reset"; //"Reset"
+    var $inputLabels = [""]; //[""]
+    var $inputPlaceholders = [""]; //[""]
+    var $inputValues = [""]; //[""]
+    var $inputsRequired = [false]; //[false]
+    var $inputsReadOnly = [false]; //[false]
+    var $setFieldsets = [""]; //[""]
+    var $useCustomCSS = false; //false
+    var $cssPath = "";
+    var $fontFamily = "sans-serif"; //"sans-serif"
+    var $preset = "Default"; //"Default"    
+    var $colorFormBg = "#fff"; //"#fff"
+    var $colorFont = "#000"; //"#000"
+    var $colorBorders = "#000"; //"#000"
+    var $colorInputBg = "#fff"; //"#fff"
+    var $colorLabelFont = "#000"; //"#000"
     */
 
 
@@ -24,7 +33,7 @@ $typez->con_status();
     $inputTypes="";
     for($i=0;$i<$inputAmount;$i++)
     {
-        $inputTypes.=$_REQUEST["selectInputType".$i];
+        $inputTypes.="'".$_REQUEST["selectInputType".$i]."'";
         if($i<$inputAmount-1)
         {
             $inputTypes.=",";
@@ -33,12 +42,13 @@ $typez->con_status();
     $inputNames="";
     for($i=0;$i<$inputAmount;$i++)
     {
-        $inputNames.=$_REQUEST["inputName".$i];
+        $inputNames.="'".$_REQUEST["inputName".$i]."'";
         if($i<$inputAmount-1)
         {
             $inputNames.=",";
         }
     }
+    $formMethod=$_REQUEST["selectFormMethod"];
 
     
 ?>
@@ -53,7 +63,8 @@ $typez->con_status();
                 "\$form = new form; ".
                 "\$form->inputAmount = ".$inputAmount."; ".
                 "\$form->inputTypes = [".$inputTypes."]; ".
-                "\$form->inputNames = [".$inputNames."]; "
+                "\$form->inputNames = [".$inputNames."]; ".
+                "\$form->formMethod = '".$formMethod."'; " 
                 ;
             echo($str);
         ?>
