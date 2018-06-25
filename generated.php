@@ -2,7 +2,6 @@
     require("./index.php");
 
     /*  
-    var $useReset = false; //false
     var $useCustomColors = false; //false    
     var $submitValue = "Submit"; //"Submit"
     var $resetValue = "Reset"; //"Reset"
@@ -73,6 +72,13 @@
     {
        $usePlaceholders="true"; 
     }
+
+
+    $useReset="false";
+    if(isset($_REQUEST["switchUseReset"]) and ($_REQUEST["switchUseReset"] == "on"))
+    {
+       $useReset="true"; 
+    }
     
 ?>
 <html>
@@ -90,7 +96,8 @@
                 "\$form->formMethod = '".$formMethod."'; ".
                 "\$form->formAction = '".$formAction."'; ".
                 "\$form->formWidth = '".$formWidth."'; ".
-                "\$form->usePlaceholders = '".$usePlaceholders."'; "
+                "\$form->usePlaceholders = '".$usePlaceholders."'; ".
+                "\$form->useReset = '".$useReset."'; "
                 ;
             echo($str);
         ?>
