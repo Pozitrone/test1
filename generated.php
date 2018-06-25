@@ -2,7 +2,6 @@
     require("./index.php");
 
     /*  
-    var $formMethod = "POST"; //"POST"
     var $formAction = ""; //""
     var $formWidth = "512px"; //"512px"   
     var $usePlaceholders = false; //false
@@ -29,7 +28,11 @@
 
 
     $formId = $_REQUEST["textFormId"];
+
+
     $inputAmount = $_REQUEST["numberInputAmount"];
+
+
     $inputTypes="";
     for($i=0;$i<$inputAmount;$i++)
     {
@@ -39,6 +42,8 @@
             $inputTypes.=",";
         }
     }
+
+
     $inputNames="";
     for($i=0;$i<$inputAmount;$i++)
     {
@@ -48,7 +53,17 @@
             $inputNames.=",";
         }
     }
+
+
     $formMethod=$_REQUEST["selectFormMethod"];
+
+
+    $formAction="";
+    if(isset($_REQUEST["textFormAction"]))
+    {
+        $formAction=$_REQUEST["textFormAction"];
+    }
+
 
     
 ?>
@@ -64,7 +79,8 @@
                 "\$form->inputAmount = ".$inputAmount."; ".
                 "\$form->inputTypes = [".$inputTypes."]; ".
                 "\$form->inputNames = [".$inputNames."]; ".
-                "\$form->formMethod = '".$formMethod."'; " 
+                "\$form->formMethod = '".$formMethod."'; ".
+                "\$form->formAction = '".$formAction."'; "
                 ;
             echo($str);
         ?>
