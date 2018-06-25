@@ -2,8 +2,6 @@
     require("./index.php");
 
     /*  
-    var $formWidth = "512px"; //"512px"   
-    var $usePlaceholders = false; //false
     var $useReset = false; //false
     var $useCustomColors = false; //false    
     var $submitValue = "Submit"; //"Submit"
@@ -70,7 +68,11 @@
         $formWidth=(string)$_REQUEST["numberFormWidth"].$_REQUEST["selectFormWidth"];
     }
 
-
+    $usePlaceholders="false";
+    if(isset($_REQUEST["switchUsePlaceholders"]) and ($_REQUEST["switchUsePlaceholders"] == "on"))
+    {
+       $usePlaceholders="true"; 
+    }
     
 ?>
 <html>
@@ -87,7 +89,8 @@
                 "\$form->inputNames = [".$inputNames."]; ".
                 "\$form->formMethod = '".$formMethod."'; ".
                 "\$form->formAction = '".$formAction."'; ".
-                "\$form->formWidth = '".$formWidth."'; "
+                "\$form->formWidth = '".$formWidth."'; ".
+                "\$form->usePlaceholders = '".$usePlaceholders."'; "
                 ;
             echo($str);
         ?>
