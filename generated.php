@@ -3,8 +3,6 @@
 
     /*  
     var $useCustomColors = false; //false    
-    var $submitValue = "Submit"; //"Submit"
-    var $resetValue = "Reset"; //"Reset"
     var $inputLabels = [""]; //[""]
     var $inputPlaceholders = [""]; //[""]
     var $inputValues = [""]; //[""]
@@ -81,6 +79,13 @@
     }
 
 
+    $useCustomColors="false";
+    if(isset($_REQUEST["switchUseCustomColors"]) and ($_REQUEST["switchUseCustomColors"] == "on"))
+    {
+       $useCustomColors="true"; 
+    }
+
+
     $submitValue="Submit";
     if(isset($_REQUEST["textSubmitValue"]))
     {
@@ -111,10 +116,13 @@
                 "\$form->formWidth = '".$formWidth."'; ".
                 "\$form->usePlaceholders = '".$usePlaceholders."'; ".
                 "\$form->useReset = '".$useReset."'; ".
+                "\$form->useCustomColors = '".$useCustomColors."'; ".
                 "\$form->submitValue = '".$submitValue."'; ".
                 "\$form->resetValue = '".$resetValue."'; "
                 ;
             echo($str);
+            echo("<br><br><br>");
+            eval($str."\$form->con_form();");
         ?>
         
         
