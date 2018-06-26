@@ -1,9 +1,7 @@
 <?php
     require("./index.php");
 
-    /*  
-    var $useCustomColors = false; //false    
-    var $inputLabels = [""]; //[""]
+    /*     
     var $inputPlaceholders = [""]; //[""]
     var $inputValues = [""]; //[""]
     var $inputsRequired = [false]; //[false]
@@ -45,6 +43,17 @@
         if($i<$inputAmount-1)
         {
             $inputNames.=",";
+        }
+    }
+
+
+    $inputLabels="";
+    for($i=0;$i<$inputAmount;$i++)
+    {
+        $inputLabels.="'".$_REQUEST["inputLabel".$i]."'";
+        if($i<$inputLabels-1)
+        {
+            $inputLabels.=",";
         }
     }
 
@@ -111,6 +120,7 @@
                 "\$form->inputAmount = ".$inputAmount."; ".
                 "\$form->inputTypes = [".$inputTypes."]; ".
                 "\$form->inputNames = [".$inputNames."]; ".
+                "\$form->inputLabels = [".$inputLabels."]; ".
                 "\$form->formMethod = '".$formMethod."'; ".
                 "\$form->formAction = '".$formAction."'; ".
                 "\$form->formWidth = '".$formWidth."'; ".
@@ -120,9 +130,10 @@
                 "\$form->submitValue = '".$submitValue."'; ".
                 "\$form->resetValue = '".$resetValue."'; "
                 ;
+            $str.="\$form->con_form();";
             echo($str);
             echo("<br><br><br>");
-            eval($str."\$form->con_form();");
+            eval($str);
         ?>
         
         
