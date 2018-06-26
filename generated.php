@@ -79,6 +79,12 @@
     {
        $useReset="true"; 
     }
+
+    $submitValue="Submit";
+    if(isset($_REQUEST["textSubmitValue"]))
+    {
+        $submitValue=$_REQUEST["textSubmitValue"];
+    }
     
 ?>
 <html>
@@ -97,7 +103,8 @@
                 "\$form->formAction = '".$formAction."'; ".
                 "\$form->formWidth = '".$formWidth."'; ".
                 "\$form->usePlaceholders = '".$usePlaceholders."'; ".
-                "\$form->useReset = '".$useReset."'; "
+                "\$form->useReset = '".$useReset."'; ".
+                "\$form->submitValue = '".$submitValue."'; "
                 ;
             echo($str);
         ?>
