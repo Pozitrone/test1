@@ -2,7 +2,6 @@
     require("./index.php");
 
     /*     
-    var $inputValues = [""]; //[""]
     var $inputsRequired = [false]; //[false]
     var $inputsReadOnly = [false]; //[false]
     var $setFieldsets = [""]; //[""]
@@ -50,7 +49,7 @@
     for($i=0;$i<$inputAmount;$i++)
     {
         $inputLabels.="'".$_REQUEST["inputLabel".$i]."'";
-        if($i<$inputLabels-1)
+        if($i<$inputAmount-1)
         {
             $inputLabels.=",";
         }
@@ -61,7 +60,7 @@
     for($i=0;$i<$inputAmount;$i++)
     {
         $inputPlaceholders.="'".$_REQUEST["inputPlaceholder".$i]."'";
-        if($i<$inputPlaceholders-1)
+        if($i<$inputAmount-1)
         {
             $inputPlaceholders.=",";
         }
@@ -72,7 +71,7 @@
     for($i=0;$i<$inputAmount;$i++)
     {
         $inputValues.="'".$_REQUEST["inputValue".$i]."'";
-        if($i<$inputValues-1)
+        if($i<$inputAmount-1)
         {
             $inputValues.=",";
         }
