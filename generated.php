@@ -78,6 +78,26 @@
     }
 
 
+    $inputsRequired="";
+    for($i=0;$i<$inputAmount;$i++)
+    {
+        $inputsRequired.="'";
+        if(isset($_REQUEST["switchRequired".$i]) and ($_REQUEST["switchRequired".$i] == "on"))
+        {
+            $inputsRequired.="true'";
+        }
+        else
+        {
+            $inputsRequired.="false'";
+        }
+        
+        if($i<$inputAmount-1)
+        {
+            $inputsRequired.=",";
+        }
+    }
+
+
     $formMethod=$_REQUEST["selectFormMethod"];
 
 
@@ -168,6 +188,7 @@
                     "\$form->inputLabels = [".$inputLabels."]; ".
                     "\$form->inputPlaceholders = [".$inputPlaceholders."]; ".
                     "\$form->inputValues = [".$inputValues."]; ".
+                    "\$form->inputsRequired = [".$inputsRequired."]; ".
                     "\$form->formMethod = '".$formMethod."'; ".
                     "\$form->formAction = '".$formAction."'; ".
                     "\$form->formWidth = '".$formWidth."'; ".
