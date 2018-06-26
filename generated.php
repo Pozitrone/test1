@@ -130,36 +130,73 @@
 ?>
 <html>
     <head>
+        <script>
+            function ssc()
+            {
+                document.getElementById("escaped").value = document.getElementById("forming").innerHTML;
+            }
+            
+            </script>
+        <style>
+            #console{
+                width:100%;
+            }
+            #forming{
+                width:45%;
+                float: left;
+                height:80%;
+                margin-left:5%;
+            }
+            #escaped{
+                width:45%;
+                float: right;
+                height:80%;
+                margin-right:5%;
+            }
+        </style>
     </head>
-    <body>
-        <div width="50%">
+    <body onload="ssc()">
+        <div id="console">
+            <?php
+                 $str=
+                    "\$form = new form; ".
+                    "\$form->formId = '".$formId."'; ".
+                     
+                    "\$form->inputAmount = ".$inputAmount."; ".
+                    "\$form->inputTypes = [".$inputTypes."]; ".
+                    "\$form->inputNames = [".$inputNames."]; ".
+                    "\$form->inputLabels = [".$inputLabels."]; ".
+                    "\$form->inputPlaceholders = [".$inputPlaceholders."]; ".
+                    "\$form->inputValues = [".$inputValues."]; ".
+                    "\$form->formMethod = '".$formMethod."'; ".
+                    "\$form->formAction = '".$formAction."'; ".
+                    "\$form->formWidth = '".$formWidth."'; ".
+                    "\$form->usePlaceholders = '".$usePlaceholders."'; ".
+                    "\$form->useReset = '".$useReset."'; ".
+                    "\$form->useCustomColors = '".$useCustomColors."'; ".
+                    "\$form->submitValue = '".$submitValue."'; ".
+                    "\$form->resetValue = '".$resetValue."'; "
+                    ;
+                $str.="\$form->con_form();";
+                echo($str);
+                echo("<br><br><br>");
+            ?>
+        </div>
+        
+        <div id="forming">
         <?php
         
-            $str=
-                "\$form = new form; ".
-                "\$form->inputAmount = ".$inputAmount."; ".
-                "\$form->inputTypes = [".$inputTypes."]; ".
-                "\$form->inputNames = [".$inputNames."]; ".
-                "\$form->inputLabels = [".$inputLabels."]; ".
-                "\$form->inputPlaceholders = [".$inputPlaceholders."]; ".
-                "\$form->inputValues = [".$inputValues."]; ".
-                "\$form->formMethod = '".$formMethod."'; ".
-                "\$form->formAction = '".$formAction."'; ".
-                "\$form->formWidth = '".$formWidth."'; ".
-                "\$form->usePlaceholders = '".$usePlaceholders."'; ".
-                "\$form->useReset = '".$useReset."'; ".
-                "\$form->useCustomColors = '".$useCustomColors."'; ".
-                "\$form->submitValue = '".$submitValue."'; ".
-                "\$form->resetValue = '".$resetValue."'; "
-                ;
-            $str.="\$form->con_form();";
-            echo($str);
-            echo("<br><br><br>");
             eval($str);
         ?>
         
         
         </div>
-        <div width="50%"></div>
+        <textarea id="escaped" readonly>
+        
+            
+            <?php eval($str);?>
+            
+            
+        </textarea>
     </body>
 </html>

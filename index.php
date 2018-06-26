@@ -628,13 +628,7 @@ class form{
             $this->formMethod="post";
         }
         
-        echo('<!doctype html>
-        <html>
-            <head>
-                <title>Vexx Forms</title>
-                <meta lang="en">
-                <meta charset="utf-8">
-                <link rel="stylesheet" type="text/css" href="presets.css"/>');
+        echo('<link rel="stylesheet" type="text/css" href="presets.css"/>');
         if(($this->useCustomCSS==true) and ($this->cssPath!=""))
         {
             echo('<link rel="stylesheet" type="text/css" href="'.$this->cssPath.'"/>');
@@ -653,11 +647,11 @@ class form{
             
         }
      
-        if($this->useCustomColors == true)
+        if(($this->useCustomColors === true) or ($this->useCustomColors === "true"))
         {
             echo('<style>');
-            echo(
-                ':root
+            echo(' 
+                :root
                     {
                         --colorFont:'.$this->colorFont.';
                         --colorFormBg:'.$this->colorFormBg.';
@@ -696,7 +690,9 @@ class form{
                     {
                         border-color:var(--colorBorders) !important;
                     }');
-            echo('</style>');
+            echo('</style>
+            
+            ');
             
         }
     
