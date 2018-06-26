@@ -68,6 +68,17 @@
     }
 
 
+    $inputValues="";
+    for($i=0;$i<$inputAmount;$i++)
+    {
+        $inputValues.="'".$_REQUEST["inputValue".$i]."'";
+        if($i<$inputValues-1)
+        {
+            $inputValues.=",";
+        }
+    }
+
+
     $formMethod=$_REQUEST["selectFormMethod"];
 
 
@@ -132,6 +143,7 @@
                 "\$form->inputNames = [".$inputNames."]; ".
                 "\$form->inputLabels = [".$inputLabels."]; ".
                 "\$form->inputPlaceholders = [".$inputPlaceholders."]; ".
+                "\$form->inputValues = [".$inputValues."]; ".
                 "\$form->formMethod = '".$formMethod."'; ".
                 "\$form->formAction = '".$formAction."'; ".
                 "\$form->formWidth = '".$formWidth."'; ".
