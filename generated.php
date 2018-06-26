@@ -2,8 +2,6 @@
     require("./index.php");
 
     /*     
-    var $inputsRequired = [false]; //[false]
-    var $inputsReadOnly = [false]; //[false]
     var $setFieldsets = [""]; //[""]
     var $useCustomCSS = false; //false
     var $cssPath = "";
@@ -94,6 +92,26 @@
         if($i<$inputAmount-1)
         {
             $inputsRequired.=",";
+        }
+    }
+
+
+    $inputsReadOnly="";
+    for($i=0;$i<$inputAmount;$i++)
+    {
+        $inputsReadOnly.="'";
+        if(isset($_REQUEST["switchReadonly".$i]) and ($_REQUEST["switchReadonly".$i] == "on"))
+        {
+            $inputsReadOnly.="true'";
+        }
+        else
+        {
+            $inputsReadOnly.="false'";
+        }
+        
+        if($i<$inputAmount-1)
+        {
+            $inputsReadOnly.=",";
         }
     }
 
@@ -189,6 +207,7 @@
                     "\$form->inputPlaceholders = [".$inputPlaceholders."]; ".
                     "\$form->inputValues = [".$inputValues."]; ".
                     "\$form->inputsRequired = [".$inputsRequired."]; ".
+                    "\$form->inputsReadOnly = [".$inputsReadOnly."]; ".
                     "\$form->formMethod = '".$formMethod."'; ".
                     "\$form->formAction = '".$formAction."'; ".
                     "\$form->formWidth = '".$formWidth."'; ".

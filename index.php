@@ -480,8 +480,8 @@ class form{
                 name="'.$this->inputNames[$i].'" 
                 '.$placeholder[$i].' 
                 value="'.$this->inputValues[$i].'"');
-                if($this->inputsRequired[$i]==true){echo(" required");} 
-                if($this->inputsReadOnly[$i]==true){echo(" readonly");}
+                if(($this->inputsRequired[$i]===true)or($this->inputsRequired[$i]==="true")){echo(" required");} 
+                if(($this->inputsReadOnly[$i]===true)or($this->inputsReadOnly[$i]==="true")){echo(" readonly");}
                 echo('/><br>');
             }
             
