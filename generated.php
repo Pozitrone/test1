@@ -80,12 +80,19 @@
        $useReset="true"; 
     }
 
+
     $submitValue="Submit";
     if(isset($_REQUEST["textSubmitValue"]))
     {
         $submitValue=$_REQUEST["textSubmitValue"];
     }
     
+
+    $resetValue="Reset";
+    if(isset($_REQUEST["textResetValue"]))
+    {
+        $resetValue=$_REQUEST["textResetValue"];
+    }
 ?>
 <html>
     <head>
@@ -104,7 +111,8 @@
                 "\$form->formWidth = '".$formWidth."'; ".
                 "\$form->usePlaceholders = '".$usePlaceholders."'; ".
                 "\$form->useReset = '".$useReset."'; ".
-                "\$form->submitValue = '".$submitValue."'; "
+                "\$form->submitValue = '".$submitValue."'; ".
+                "\$form->resetValue = '".$resetValue."'; "
                 ;
             echo($str);
         ?>
