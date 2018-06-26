@@ -272,7 +272,7 @@
                 <input type="text" name="textResetValue" class="jsReset">
             
                 <label for="numberInputAmount">input amount</label>
-                <input type="number" name="numberInputAmount" id="inputAmount" onchange="loadInputs()" required min="1">
+                <input type="number" name="numberInputAmount" id="inputAmount" onchange="loadInputs(); usePlaceholders();" onkeyup="loadInputs(); usePlaceholders();" required min="1">
             
                 <label for="textCssPath" class="jsCss">css path</label>
                 <input type="text" name="textCssPath" class="jsCss">
