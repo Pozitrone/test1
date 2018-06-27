@@ -380,7 +380,11 @@ class form{
     
     function con_reset()
     {
-        return('<input type="button" name="resetButton" onclick="resetFormID'.$this->formId.'()" class="resetButton '.$this->preset.'" value="'.$this->resetValue.'"/>');
+        if(($this->useReset === true) or ($this->useReset === "true"))
+        {
+            return('<input type="button" name="resetButton" onclick="resetFormID'.$this->formId.'()" class="resetButton '.$this->preset.'" value="'.$this->resetValue.'"/>');
+        }
+        else return("");
     }
     
     function con_inputs()
@@ -632,7 +636,7 @@ class form{
             echo('<link rel="stylesheet" type="text/css" href="'.$this->cssPath.'"/>');
         }
      
-        if(($this->useReset == true) and ($this->formId !=""))
+        if((($this->useReset === true) or ($this->useReset === "true")) and ($this->formId !=""))
         {
             echo('<script>
                 function resetFormID'.$this->formId.'()
