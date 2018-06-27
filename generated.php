@@ -2,9 +2,7 @@
     require("./index.php");
 
     /*     
-    var $setFieldsets = [""]; //[""]
-    var $cssPath = "";
-    var $fontFamily = "sans-serif"; //"sans-serif"   
+    var $setFieldsets = [""]; //[""] 
     */
 
 
@@ -153,7 +151,7 @@
 
 
     $submitValue="Submit";
-    if(isset($_REQUEST["textSubmitValue"]))
+    if((isset($_REQUEST["textSubmitValue"])) and ($_REQUEST["textSubmitValue"]!=""))
     {
         $submitValue=$_REQUEST["textSubmitValue"];
     }
@@ -175,10 +173,18 @@
     $colorInputBg = $_REQUEST["colorInputBg"];
     $colorLabelFont = $_REQUEST["colorLabelFont"];
     
+    
     $cssPath="";
     if(isset($_REQUEST["textCssPath"]))
     {
         $cssPath = $_REQUEST["textCssPath"];
+    }
+
+
+    $fontFamily="";
+    if(isset($_REQUEST["textFontFamily"]))
+    {
+        $fontFamily = $_REQUEST["textFontFamily"];
     }
 ?>
 <html>
@@ -238,7 +244,8 @@
                     "\$form->colorInputBg ='".$colorInputBg."'; ".
                     "\$form->colorLabelFont ='".$colorLabelFont."'; ".
                     "\$form->useCustomCSS = '".$useCustomCSS."'; ".
-                    "\$form->cssPath = '".$cssPath."'; "
+                    "\$form->cssPath = '".$cssPath."'; ".
+                    "\$form->fontFamily = '".$fontFamily."'; "
                     ;
                 $str.="\$form->con_form();";
                 echo($str);
