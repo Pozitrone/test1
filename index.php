@@ -627,8 +627,6 @@ class form{
         {
             $this->formMethod="post";
         }
-        
-        echo('<link rel="stylesheet" type="text/css" href="presets.css"/>');
         if(($this->useCustomCSS==true) and ($this->cssPath!=""))
         {
             echo('<link rel="stylesheet" type="text/css" href="'.$this->cssPath.'"/>');
@@ -636,8 +634,7 @@ class form{
      
         if(($this->useReset == true) and ($this->formId !=""))
         {
-            echo('
-            <script>
+            echo('<script>
                 function resetFormID'.$this->formId.'()
                 {
                     document.getElementById("'.$this->formId.'").reset();

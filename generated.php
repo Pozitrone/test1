@@ -3,7 +3,6 @@
 
     /*     
     var $setFieldsets = [""]; //[""]
-    var $useCustomCSS = false; //false
     var $cssPath = "";
     var $fontFamily = "sans-serif"; //"sans-serif"   
     */
@@ -146,6 +145,12 @@
        $useCustomColors="true"; 
     }
 
+    $useCustomCSS="false";
+    if(isset($_REQUEST["switchUseCustomCSS"]) and ($_REQUEST["switchUseCustomCSS"] == "on"))
+    {
+       $useCustomCSS="true"; 
+    }
+
 
     $submitValue="Submit";
     if(isset($_REQUEST["textSubmitValue"]))
@@ -226,7 +231,8 @@
                     "\$form->colorFont ='".$colorFont."'; ".
                     "\$form->colorBorders ='".$colorBorders."'; ".
                     "\$form->colorInputBg ='".$colorInputBg."'; ".
-                    "\$form->colorLabelFont ='".$colorLabelFont."'; "
+                    "\$form->colorLabelFont ='".$colorLabelFont."'; ".
+                    "\$form->useCustomCSS = '".$useCustomCSS."'; "
                     ;
                 $str.="\$form->con_form();";
                 echo($str);
