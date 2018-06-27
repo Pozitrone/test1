@@ -6,11 +6,6 @@
     var $useCustomCSS = false; //false
     var $cssPath = "";
     var $fontFamily = "sans-serif"; //"sans-serif"   
-    var $colorFormBg = "#fff"; //"#fff"
-    var $colorFont = "#000"; //"#000"
-    var $colorBorders = "#000"; //"#000"
-    var $colorInputBg = "#fff"; //"#fff"
-    var $colorLabelFont = "#000"; //"#000"
     */
 
 
@@ -165,7 +160,16 @@
         $resetValue=$_REQUEST["textResetValue"];
     }
 
+
     $preset=$_REQUEST["selectPreset"];
+
+
+    $colorFormBg = $_REQUEST["colorFormBg"];
+    $colorFont = $_REQUEST["colorFont"];
+    $colorBorders = $_REQUEST["colorBorders"];
+    $colorInputBg = $_REQUEST["colorInputBg"];
+    $colorLabelFont = $_REQUEST["colorLabelFont"];
+    
 ?>
 <html>
     <head>
@@ -217,7 +221,12 @@
                     "\$form->useCustomColors = '".$useCustomColors."'; ".
                     "\$form->submitValue = '".$submitValue."'; ".
                     "\$form->resetValue = '".$resetValue."'; ".
-                    "\$form->preset = '".$preset."'; "
+                    "\$form->preset = '".$preset."'; ".
+                    "\$form->colorFormBg ='".$colorFormBg."'; ".
+                    "\$form->colorFont ='".$colorFont."'; ".
+                    "\$form->colorBorders ='".$colorBorders."'; ".
+                    "\$form->colorInputBg ='".$colorInputBg."'; ".
+                    "\$form->colorLabelFont ='".$colorLabelFont."'; "
                     ;
                 $str.="\$form->con_form();";
                 echo($str);
