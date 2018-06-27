@@ -695,6 +695,240 @@ class form{
             ');
             
         }
+        
+        
+        if($this->preset == "smooth")
+        {
+            echo('<style>');
+            echo('/* SMOOTH */
+
+            input.smooth, select.smooth, textarea.smooth{
+                background-color:#ddd;
+                font-family:sans-serif;
+                border-radius: 10px;
+                border-color:#3333ff;
+                padding:5px;
+                margin:5px;
+                width:97.5%;
+                color:#000;
+            }
+
+            select.smooth
+            {
+                width:40%;
+            }
+
+            label.smooth
+            {
+                margin:5px;
+                font-family:sans-serif;
+                font-weight: bold;
+                color:#000;
+            }
+
+            form.smooth
+            {
+                padding:10px;
+                background-color:#eee;
+                display:block;
+
+            }
+
+            .submit.smooth
+            {
+                width:150px;
+                font-weight: bold;  
+            }
+
+            .resetButton.smooth
+            {
+                width:150px;
+                font-weight: bold;
+                color:#000;
+            }
+
+            .check.smooth, .radio.smooth
+            {
+                width:16px !important;
+            }
+
+            .color.smooth
+            {
+                width:33%;
+                height:3em;
+            }
+
+            fieldset.smooth
+            {
+                border-color:#3333ff;
+                border-radius: 10px;
+                color:#000;
+            }
+
+            ');
+            echo('</style>');
+        }
+        
+        
+        if($this->preset=="smoothnight")
+        {
+            echo('<style>');
+            echo('/* SMOOTHNIGHT */
+
+            input.smoothNight, select.smoothNight, textarea.smoothNight{
+                background-color:#222;
+                font-family:sans-serif;
+                border-radius: 10px;
+                border-color:#52dd9c;
+                padding:5px;
+                margin:5px;
+                width:97.5%;
+                color:#eee;
+            }
+
+            select.smoothNight
+            {
+                width:40%;
+            }
+
+            label.smoothNight
+            {
+                margin:5px;
+                font-family:sans-serif;
+                font-weight: bold;
+                color:#eee;
+            }
+
+            form.smoothNight
+            {
+                padding:10px;
+                background-color:#555;
+                display:block;
+
+            }
+
+            .submit.smoothNight
+            {
+                width:150px;
+                font-weight: bold;  
+            }
+
+            .resetButton.smoothNight
+            {
+                width:150px;
+                font-weight: bold;
+                color:#eee;
+            }
+
+            .check.smoothNight, .radio.smoothNight
+            {
+                width:16px !important;
+            }
+
+            .color.smoothNight
+            {
+                width:33%;
+                height:3em;
+            }
+
+            fieldset.smoothNight
+            {
+                border-color:#52dd9c;
+                border-radius: 10px;
+                color:#eee;
+            }
+
+
+            ');
+            echo('</style>');
+        }
+        
+        
+        if($this->preset=="predator")
+        {
+            echo('<style>');
+            echo('/* PREDATOR */
+
+            input.predator, select.predator, textarea.predator
+            {
+                background-color:#222;
+                font-family:sans-serif;
+                border-radius: 10px;
+                border-color:#db4646;
+                padding:5px;
+                margin:5px;
+                width:97.5%;
+                color:#eee;
+            }
+
+
+
+            select.predator
+            {
+                width:40%;
+            }
+
+            label.predator
+            {
+                margin:5px;
+                font-family:sans-serif;
+                font-weight: bold;
+                color:#eee;
+            }
+
+            form.predator
+            {
+                padding:10px;
+                background-color:#555;
+                display:block;
+
+            }
+
+            .submit.predator
+            {
+                width:150px;
+                font-weight: bold;  
+                color:#eee;
+            }
+
+            .resetButton.predator
+            {
+                width:150px;
+                font-weight: bold;
+                color:#eee;
+            }
+
+            .check.predator, .radio.predator
+            {
+                width:16px !important;
+            }
+
+            .color.predator
+            {
+                width:33%;
+                height:3em;
+            }
+
+            fieldset.predator
+            {
+                border-color:#db4646;
+                border-radius: 10px;
+                color:#eee;
+            }
+
+
+            input.predator:hover, select.predator:hover, textarea.predator:hover
+            {
+                box-shadow:0px 0px 10px #db4646;
+            }
+
+            [required].predator:hover
+            {
+                box-shadow:0px 0px 10px #fff;
+            }
+            ');
+            echo('</style>');
+        }
     
         echo('</head>
             <body>');
