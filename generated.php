@@ -5,8 +5,7 @@
     var $setFieldsets = [""]; //[""]
     var $useCustomCSS = false; //false
     var $cssPath = "";
-    var $fontFamily = "sans-serif"; //"sans-serif"
-    var $preset = "Default"; //"Default"    
+    var $fontFamily = "sans-serif"; //"sans-serif"   
     var $colorFormBg = "#fff"; //"#fff"
     var $colorFont = "#000"; //"#000"
     var $colorBorders = "#000"; //"#000"
@@ -165,6 +164,8 @@
     {
         $resetValue=$_REQUEST["textResetValue"];
     }
+
+    $preset=$_REQUEST["selectPreset"];
 ?>
 <html>
     <head>
@@ -215,7 +216,8 @@
                     "\$form->useReset = '".$useReset."'; ".
                     "\$form->useCustomColors = '".$useCustomColors."'; ".
                     "\$form->submitValue = '".$submitValue."'; ".
-                    "\$form->resetValue = '".$resetValue."'; "
+                    "\$form->resetValue = '".$resetValue."'; ".
+                    "\$form->preset = '".$preset."'; "
                     ;
                 $str.="\$form->con_form();";
                 echo($str);
