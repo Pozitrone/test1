@@ -175,6 +175,11 @@
     $colorInputBg = $_REQUEST["colorInputBg"];
     $colorLabelFont = $_REQUEST["colorLabelFont"];
     
+    $cssPath="";
+    if(isset($_REQUEST["textCssPath"]))
+    {
+        $cssPath = $_REQUEST["textCssPath"];
+    }
 ?>
 <html>
     <head>
@@ -232,7 +237,8 @@
                     "\$form->colorBorders ='".$colorBorders."'; ".
                     "\$form->colorInputBg ='".$colorInputBg."'; ".
                     "\$form->colorLabelFont ='".$colorLabelFont."'; ".
-                    "\$form->useCustomCSS = '".$useCustomCSS."'; "
+                    "\$form->useCustomCSS = '".$useCustomCSS."'; ".
+                    "\$form->cssPath = '".$cssPath."'; "
                     ;
                 $str.="\$form->con_form();";
                 echo($str);
