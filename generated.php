@@ -1,9 +1,28 @@
 <?php
     require("./index.php");
 
-    /*     
-    var $setFieldsets = [""]; //[""] 
-    */
+    $fieldsetAmount = 0;
+    if(isset($_REQUEST["amountFieldsets"]))
+    {
+        $fieldsetAmount = $_REQUEST["amountFieldsets"];
+    }
+
+    $setFieldsets="";
+    for($i=0;$i<$fieldsetAmount;$i++)
+    {
+        $setFieldsets.="'".$_REQUEST["fieldsetName".$i]."(".($_REQUEST["fieldsetBeginning".$i]-1).",".($_REQUEST["fieldsetEnd".$i]-1).")'";
+            
+        if($i<$fieldsetAmount)
+        {
+            $setFieldsets.=",";
+        }
+        else
+        {
+            $setFieldsets.="";
+        }
+    }
+    echo($_REQUEST["amountFieldsets"]."<br>");
+    echo($setFieldsets."<br>");
 
 
     $formId = $_REQUEST["textFormId"];
@@ -15,7 +34,7 @@
     $inputTypes="";
     for($i=0;$i<$inputAmount;$i++)
     {
-        $inputTypes.="'".$_REQUEST["selectInputType".$i]."'";
+        $inputTypes.="'".$_REQUEST["inputName".$i]."'";
         if($i<$inputAmount-1)
         {
             $inputTypes.=",";
@@ -245,7 +264,8 @@
                     "\$form->colorLabelFont ='".$colorLabelFont."'; ".
                     "\$form->useCustomCSS = '".$useCustomCSS."'; ".
                     "\$form->cssPath = '".$cssPath."'; ".
-                    "\$form->fontFamily = '".$fontFamily."'; "
+                    "\$form->fontFamily = '".$fontFamily."'; ".
+                    "\$form->setFieldsets = [".$setFieldsets."]; "
                     ;
                 $str.="\$form->con_form();";
                 echo($str);
