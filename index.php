@@ -647,6 +647,37 @@ class form{
             ');
             
         }
+        
+        echo('<style>');
+        echo('/* ALL */
+
+            legend
+            {
+                font-weight:bold;
+                font-size:1.25em;
+            }
+
+            .statusTable th
+            {
+                text-align: center;
+                padding:5px;
+            }
+
+            .statusTable td
+            {
+                border:1px black solid;
+                padding:5px;
+                text-align:center;
+            }
+
+            .statusTable
+            {
+                border:2px black solid;
+                border-collapse: collapse;
+                width: 50%;
+
+            }');
+        echo('</style>');
      
         if(($this->useCustomColors === true) or ($this->useCustomColors === "true"))
         {

@@ -144,6 +144,13 @@
     }
 
 
+    $useFieldsets="false";
+    if(isset($_REQUEST["switchUseFieldsets"]) and ($_REQUEST["switchUseFieldsets"] == "on"))
+    {
+       $useFieldsets="true"; 
+    }
+
+
     $submitValue="Submit";
     if((isset($_REQUEST["textSubmitValue"])) and ($_REQUEST["textSubmitValue"]!=""))
     {
@@ -192,7 +199,7 @@
     for($i=0;$i<$fieldsetAmount;$i++)
     {
         
-        if($i=0)
+        if($i==0)
         {
             $setFieldsets.="'".$_REQUEST["fieldsetName".$i]."(".($_REQUEST["fieldsetBeginning".$i]-1).",".($_REQUEST["fieldsetEnd".$i]-1).")'";
             
@@ -206,7 +213,7 @@
                 $setFieldsets.="";
             }
         }
-        else if(($i>0) and (($_REQUEST["fieldsetBeginning".$i]-1)>($_REQUEST["fieldsetEnd".$i]-1)))
+        else if(($i>0) and (($_REQUEST["fieldsetBeginning".$i]-1)>($_REQUEST["fieldsetEnd".($i-1)]-1)))
         {
             $setFieldsets.="'".$_REQUEST["fieldsetName".$i]."(".($_REQUEST["fieldsetBeginning".$i]-1).",".($_REQUEST["fieldsetEnd".$i]-1).")'";
             
@@ -222,7 +229,8 @@
         }
         else
         {
-            echo("<script>alert('There was an error while creating your fieldsets. Because of that, fieldset function was disabled to prevent malfunction.');</script>");
+            echo("<script>alert('There was an error while creating your fieldsets. Because of that, fieldset function was disabled to prevent malfunction caused by i=".$i." and ".($_REQUEST["fieldsetBeginning".$i]-1)." being lower than ".($_REQUEST["fieldsetEnd".$i]-1).".');</script>");
+            
             $i++;
             $useFieldsets=false;
         }
