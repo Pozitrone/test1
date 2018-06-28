@@ -1,30 +1,5 @@
 <?php
     require("./index.php");
-
-    $fieldsetAmount = 0;
-    if(isset($_REQUEST["amountFieldsets"]))
-    {
-        $fieldsetAmount = $_REQUEST["amountFieldsets"];
-    }
-
-    $setFieldsets="";
-    for($i=0;$i<$fieldsetAmount;$i++)
-    {
-        $setFieldsets.="'".$_REQUEST["fieldsetName".$i]."(".($_REQUEST["fieldsetBeginning".$i]-1).",".($_REQUEST["fieldsetEnd".$i]-1).")'";
-            
-        if($i<$fieldsetAmount)
-        {
-            $setFieldsets.=",";
-        }
-        else
-        {
-            $setFieldsets.="";
-        }
-    }
-    echo($_REQUEST["amountFieldsets"]."<br>");
-    echo($setFieldsets."<br>");
-
-
     $formId = $_REQUEST["textFormId"];
 
 
@@ -205,6 +180,55 @@
     {
         $fontFamily = $_REQUEST["textFontFamily"];
     }
+
+
+    $fieldsetAmount = 0;
+    if(isset($_REQUEST["amountFieldsets"]))
+    {
+        $fieldsetAmount = $_REQUEST["amountFieldsets"];
+    }
+
+    $setFieldsets="";
+    for($i=0;$i<$fieldsetAmount;$i++)
+    {
+        
+        if($i=0)
+        {
+            $setFieldsets.="'".$_REQUEST["fieldsetName".$i]."(".($_REQUEST["fieldsetBeginning".$i]-1).",".($_REQUEST["fieldsetEnd".$i]-1).")'";
+            
+            
+            if($i<$fieldsetAmount)
+            {
+                $setFieldsets.=",";
+            }
+            else
+            {
+                $setFieldsets.="";
+            }
+        }
+        else if(($i>0) and (($_REQUEST["fieldsetBeginning".$i]-1)>($_REQUEST["fieldsetEnd".$i]-1)))
+        {
+            $setFieldsets.="'".$_REQUEST["fieldsetName".$i]."(".($_REQUEST["fieldsetBeginning".$i]-1).",".($_REQUEST["fieldsetEnd".$i]-1).")'";
+            
+            
+            if($i<$fieldsetAmount)
+            {
+                $setFieldsets.=",";
+            }
+            else
+            {
+                $setFieldsets.="";
+            }
+        }
+        else
+        {
+            echo("<script>alert('There was an error while creating your fieldsets. Because of that, fieldset function was disabled to prevent malfunction.');</script>");
+            $i++;
+            $useFieldsets=false;
+        }
+            
+        
+    }
 ?>
 <html>
     <head>
@@ -264,9 +288,11 @@
                     "\$form->colorLabelFont ='".$colorLabelFont."'; ".
                     "\$form->useCustomCSS = '".$useCustomCSS."'; ".
                     "\$form->cssPath = '".$cssPath."'; ".
-                    "\$form->fontFamily = '".$fontFamily."'; ".
-                    "\$form->setFieldsets = [".$setFieldsets."]; "
-                    ;
+                    "\$form->fontFamily = '".$fontFamily."'; ";
+                    if(($useFieldsets===true) or ($useFieldsets==="true"))
+                    {
+                      $str.="\$form->setFieldsets = [".$setFieldsets."]; ";  
+                    }
                 $str.="\$form->con_form();";
                 echo($str);
                 echo("<br><br><br>");
