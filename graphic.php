@@ -177,10 +177,10 @@
                         document.getElementById("fieldsets").insertAdjacentHTML("beforeend",
                         "<hr>" +                                                     
                         "<label for='fieldsetBeginning"+i+"'>Fieldset Beginning</label>"+
-                        "<input type='number' name='fieldsetBeginning"+i+"'>"+ 
+                        "<input type='number' min='1' name='fieldsetBeginning"+i+"'>"+ 
                                                                                 
                         "<label for='fieldsetEnd"+i+"'>Fieldset End</label>"+
-                        "<input type='number' name='fieldsetEnd"+i+"'>"+  
+                        "<input type='number' min='1' name='fieldsetEnd"+i+"'>"+  
                                                                                 
                         "<label for='fieldsetName"+i+"'>Fieldset Name</label>"+
                         "<input type='text' name='fieldsetName"+i+"'>");   
