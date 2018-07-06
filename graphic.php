@@ -17,7 +17,7 @@
                     {
                         document.getElementById("inputs").insertAdjacentHTML("beforeend", 
                             "<label for='selectInputType"+i+"'>Input type</label>"+
-                            "<select name='selectInputType"+i+"'>"+
+                            "<select id='type"+i+"' name='selectInputType"+i+"'>"+
                                 "<option>text</option>"+
                                 "<option>number</option>"+
                                 "<option>password</option>"+
@@ -26,8 +26,8 @@
                                 "<option>checkbox</option>"+
                                 "<option>color</option>"+
                                 "<option>email</option>"+
-                            "</select>"+
-
+                                "<option>select</option>"+       
+                            "</select>"+ 
                             "<label for='inputName"+i+"'>Input name</label>"+
                             "<input type='text' name='inputName"+i+"' required>"+
 
@@ -62,6 +62,8 @@
                             "</tr>"+
                             "</table><hr>"                                                                
                         );
+                            }
+                        
                     }
                         
                 }
